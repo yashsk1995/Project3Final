@@ -45,6 +45,7 @@ class Login extends Component {
 
   render() {
     const { errors } = this.state;
+
     return (
       <div>
         <div className="container">
@@ -76,20 +77,25 @@ class Login extends Component {
                   </div>
                 </div>
                 <div className="form-group">
-                  <input
-                    type="password"
-                    // className="form-control form-control-md"
-                    className={classnames("form-control form-control-md", {
-                      "is-invalid": errors.password
-                    })}
-                    placeholder="Password"
-                    name="password"
-                    value={this.state.password}
-                    onChange={this.onChange}
-                  />
-                  {errors.password && (
-                    <div className="invalid-feedback">{errors.password}</div>
-                  )}
+                  <div className="input-group">
+                    <span className="input-group-addon">
+                      <i className="glyphicon glyphicon-lock" />
+                    </span>
+                    <input
+                      type="password"
+                      // className="form-control form-control-md"
+                      className={classnames("form-control form-control-md", {
+                        "is-invalid": errors.password
+                      })}
+                      placeholder="Password"
+                      name="password"
+                      value={this.state.password}
+                      onChange={this.onChange}
+                    />
+                    {errors.password && (
+                      <div className="invalid-feedback">{errors.password}</div>
+                    )}
+                  </div>
                 </div>
                 <input
                   type="submit"

@@ -4,23 +4,30 @@ import "./dashboard.css";
 import Box from "../../components/Box";
 import Jumbotron from "../../components/Jumbotron";
 
-class Dashboards extends Component {
+// import React, { Component } from "react";
+import propTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../../actions/authActions";
 
+class Dashboard extends Component {
   render() {
-    return (
-      <Container fluid  >
-        <Row >
-          <Col size="md-12">
-            <Jumbotron >
-              <h1>Hey Jane</h1>
-              <h3>What would you like to do today?</h3>
-            </Jumbotron>
+    const { isAuthenticated, user } = this.props.auth;
 
+    return (
+      // <div>Name: {user.name}</div>
+      <Container fluid>
+        <Row>
+          <Col size="md-12">
+            <Jumbotron>
+              <h5>User ID : {user.id}</h5>
+              <h5>Name : {user.name}</h5>
+              <h5>{user.aboutMe}</h5>
+              <h5>{user.interestedIn}</h5>
+            </Jumbotron>
           </Col>
         </Row>
         <Row>
           <Col size="md-4">
-
             <Box
               color="dash-box dash-box-color-2"
               gyp="glyphicon glyphicon-screenshot"
@@ -30,13 +37,10 @@ class Dashboards extends Component {
               alt="Best Matches"
               linkto="/matches"
               button="View Matches"
-
             />
-
-
           </Col>
           <Col size="md-4">
-          <Box
+            <Box
               color="dash-box dash-box-color-2"
               gyp="glyphicon glyphicon-floppy-saved"
               title="Saved Friend List"
@@ -45,14 +49,10 @@ class Dashboards extends Component {
               alt="save"
               linkto="/saved"
               button="View Saved"
-
             />
-
-
-           
           </Col>
           <Col size="md-4">
-          <Box
+            <Box
               color="dash-box dash-box-color-2"
               gyp="glyphicon glyphicon-user"
               title="Profile"
@@ -61,14 +61,21 @@ class Dashboards extends Component {
               alt="profile"
               linkto="/profile"
               button="Edit Profile"
-
             />
           </Col>
         </Row>
-        
       </Container>
     );
   }
 }
 
-export default Dashboards;
+// export default Dashboards;
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Dashboard);
