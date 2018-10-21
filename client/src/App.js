@@ -13,6 +13,7 @@ import Landing from "./components/layout/Landing";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 
+// import Dashboard from "./components/auth/Dashboard";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import Saved from "./pages/Saved";
@@ -45,7 +46,6 @@ class App extends Component {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/Email" component={Email} />
-              <Route exact path="/dashboard" component={Dashboard} />
               <Route exact path="/matches" component={Matches} />
               <Route exact path="/saved" component={Saved} />
               <Route exact path="/profile" component={Profile} />
@@ -54,7 +54,6 @@ class App extends Component {
               </Switch>
             </div>
           </div>
-            
         </Router>
       </Provider>
     );
@@ -62,7 +61,3 @@ class App extends Component {
 }
 
 export default App;
-
-
-
-

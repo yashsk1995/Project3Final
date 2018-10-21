@@ -12,6 +12,9 @@ const validateLoginInput = require("../../validation/login");
 //Load user model
 const User = require("../../models/User");
 
+//test
+var user;
+
 // @route  GET api/users/test
 // @desc Test post routes
 // @public route
@@ -112,7 +115,9 @@ router.post("/login", (req, res) => {
           const payload = {
             id: user.id,
             name: user.name,
-            avatar: user.avatar
+            avatar: user.avatar,
+            aboutMe: user.aboutMe,
+            interestedIn: user.interestedIn
           };
           // 1. Sign a token ( not suere why secret or key is there, this is retrived from config/keys.js)
           //ExpiresIn willl kick out user - 3600 s will kick out in an hour
