@@ -14,7 +14,7 @@ router
   .delete(userController.remove);
 
 router
-.route("/:startAge/:EndAge/:Gender/:Area")
+.route("/:id/:startAge/:EndAge/:Gender/:Area")
 .get(userController.findchoices);
 
 

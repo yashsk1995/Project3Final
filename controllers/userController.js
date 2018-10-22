@@ -19,13 +19,15 @@ module.exports = {
     console.log(req.params.EndAge);
     console.log(req.params.Gender);
     console.log(req.params.Area);
+    console.log(req.params.id);
     db.Users.find({
-      age: {
+      _id: { $ne: req.params.id },
+      myAge: {
         $gt: parseInt(req.params.startAge),
         $lt: parseInt(req.params.EndAge)
       },
-      gender: req.params.Gender,
-      location: req.params.Area
+      myGender: req.params.Gender,
+      myLocation: req.params.Area
     })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
