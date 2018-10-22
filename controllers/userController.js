@@ -47,5 +47,14 @@ module.exports = {
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
+  },
+  save:function(req,res){
+    console.log("saveeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee?");
+    console.log(req.params.id);
+    console.log(req.params.saveid);
+
+    db.Users
+    .findByIdAndUpdate(req.params.id,
+    {$push:{saved: req.params.saveid }},{'new':true}).then(console.log("done"))
   }
 };
