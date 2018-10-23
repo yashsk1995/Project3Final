@@ -5,13 +5,12 @@ import Box from "../../components/Box";
 import Jumbotron from "../../components/Jumbotron";
 
 // import React, { Component } from "react";
-import propTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 
 class Dashboard extends Component {
   render() {
-    const { isAuthenticated, user } = this.props.auth;
+    const { user } = this.props.auth;
 
     return (
       // <div>Name: {user.name}</div>

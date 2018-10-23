@@ -44,6 +44,7 @@ class Register extends Component {
       password: "",
       password2: "",
       avatar: "",
+      saved: [],
       errors: {}
     };
   }
@@ -63,11 +64,6 @@ class Register extends Component {
   onCheck = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
-  //Check hide intro
-  hideIntro = e => {
-    this.setState({ hideintro: true });
-    console.log(this.state);
-  };
 
   //On submit function
   onSubmit = e => {
@@ -78,25 +74,39 @@ class Register extends Component {
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2,
-      // avatar: this.state.avatar
+      myAge: this.state.myage,
+      myGender: this.state.mygender,
+      myLocation: this.state.mylocation,
+
       avatar:
         "https://banner2.kisspng.com/20180410/bbw/kisspng-avatar-user-medicine-surgery-patient-avatar-5acc9f7a7cb983.0104600115233596105109.jpg",
       aboutMe: [
-        this.state.myage,
-        this.state.mygender,
-        this.state.mylocation,
-        this.state.iamsportLover
-        // this.state.iampetLover
-        // this.state.iamsnorer,
-        // this.state.iamcleanFreak,
-        // this.state.iamcomputerNeard,
-        // this.state.iamheavyDrinker,
-        // this.state.iampartyLover,
-        // this.state.iampartyLover,
-        // this.state.iamsmoker,
-        // this.state.iamborrower
+        this.state.iamsportLover,
+        this.state.iampetLover,
+        this.state.iamsnorer,
+        this.state.iamcleanFreak,
+        this.state.iamcomputerNeard,
+        this.state.iamheavyDrinker,
+        this.state.iampartyLover,
+        this.state.iamsmoker,
+        this.state.iamborrower
       ],
-      interestedIn: "cow"
+      interestedIn: [
+        this.state.lookingForgender,
+        this.state.lookingForage1,
+        this.state.lookingForage2,
+        this.state.lookingForlocation,
+        this.state.partnerloveSports,
+        this.state.partnerlovePets,
+        this.state.partnerdoesNotSnore,
+        this.state.partnercleans,
+        this.state.partnerisComputerNerd,
+        this.state.partnerdrinks,
+        this.state.partnerloveParties,
+        this.state.partnersmokes,
+        this.state.partnerdoesNotBorrow
+      ],
+      saved: this.state.saved
     };
 
     console.log(newUser);
@@ -300,7 +310,8 @@ class Register extends Component {
                       <input
                         type="checkbox"
                         name="partnerloveSports"
-                        onChange={this.onChange}
+                        value="sport lover"
+                        onChange={this.onCheck}
                       />
                       &nbsp;
                       <label className="form-check-label">Loves sports</label>
@@ -312,7 +323,8 @@ class Register extends Component {
                       <input
                         type="checkbox"
                         name="partnerlovePets"
-                        onChange={this.onChange}
+                        value="pet lover"
+                        onChange={this.onCheck}
                       />
                       &nbsp;
                       <label className="form-check-label">Loves pets</label>
@@ -324,7 +336,8 @@ class Register extends Component {
                       <input
                         type="checkbox"
                         name="partner-doesNotSnore"
-                        onChange={this.onChange}
+                        value="snorer"
+                        onChange={this.onCheck}
                       />
                       &nbsp;
                       <label className="form-check-label">Does not snore</label>
@@ -336,7 +349,8 @@ class Register extends Component {
                       <input
                         type="checkbox"
                         name="partnercleans"
-                        onChange={this.onChange}
+                        value="clean"
+                        onChange={this.onCheck}
                       />
                       &nbsp;
                       <label className="form-check-label">Cleans</label>
@@ -348,7 +362,8 @@ class Register extends Component {
                       <input
                         type="checkbox"
                         name="partner-isComputerNerd"
-                        onChange={this.onChange}
+                        value="computer neard"
+                        onChange={this.onCheck}
                       />
                       &nbsp;
                       <label className="form-check-label">
@@ -362,7 +377,8 @@ class Register extends Component {
                       <input
                         type="checkbox"
                         name="partnerdrinks"
-                        onChange={this.onChange}
+                        value="drinker"
+                        onChange={this.onCheck}
                       />
                       &nbsp;
                       <label className="form-check-label">Drinks</label>
@@ -374,7 +390,8 @@ class Register extends Component {
                       <input
                         type="checkbox"
                         name="partnerloveParties"
-                        onChange={this.onChange}
+                        value="party lover"
+                        onChange={this.onCheck}
                       />
                       &nbsp;
                       <label className="form-check-label">Loves parties</label>
@@ -386,6 +403,7 @@ class Register extends Component {
                       <input
                         type="checkbox"
                         name="partnersmokes"
+                        value="smoker"
                         onChange={this.onChange}
                       />
                       &nbsp;
@@ -398,7 +416,8 @@ class Register extends Component {
                       <input
                         type="checkbox"
                         name="partnerdoesNotBorrow"
-                        onChange={this.onChange}
+                        value="borrower"
+                        onChange={this.onCheck}
                       />
                       &nbsp;
                       <label className="form-check-label">
