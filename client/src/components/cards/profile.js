@@ -10,7 +10,8 @@ const Usernames = props => (
       <div className="containername"> {/* container1 */}
         
             <img src={props.img} alt="Avatar" className="image1name" />   {/* image1 */}
-            <h5>{props.usernames} , {props.Gender} , {props.age} , {props.City} </h5>
+            <h3>{props.usernames}</h3>
+             <h4> {props.Gender} , {props.age} , {props.City} </h4>
             <h6>{props.percentage}%</h6>
             <h6>{props.About_me}</h6>
 

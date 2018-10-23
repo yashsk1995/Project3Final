@@ -11,8 +11,8 @@ export default {
 getUsers: function() {
   return axios.get("/api2/users");
 },
-findYourUser:function(startAge,EndAge,Gender,Area){
-  return axios.get("/api2/users/"+startAge+"/"+EndAge + "/" + Gender +"/"+Area);
+findYourUser:function(id,startAge,EndAge,Gender,Area){
+  return axios.get("/api2/users/"+id+"/"+startAge+"/"+EndAge + "/" + Gender +"/"+Area);
 
 },
 // Gets the book with the given id

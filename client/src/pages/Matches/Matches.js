@@ -8,6 +8,9 @@ import Name from "../../components/cards/profile";
 import Modal from "../../components/modal/modal"
 
 // import Checkbox from "../../components/Checkbox";
+import propTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../../actions/authActions";
 
 class Matches extends Component {
   state = {
@@ -23,22 +26,32 @@ class Matches extends Component {
     show: false,
     Info: {},
     currentUserId: null,
-     showMe:true
+     showMe:true,
   };
-  
+
+  componentDidMount() 
+  //  {/* <button onClick={() => this.find(20, 30,"male", "Atlanta")} >Find</button> */}
+    {
+      const { isAuthenticated, user } = this.props.auth;
+      
+      this.find(user.id,user.interestedIn[0],user.interestedIn[1],user.interestedIn[2],user.interestedIn[3]);
+  }
 
   sortByMatches = () =>{
     console.log(this.state.results);
     let matchedUsers = this.state.results ;
+    const { isAuthenticated, user } = this.props.auth;
 
 //initialize 
 // let myLikes = currentUser.interestIn;
-let myLikes = ["Party", "Smoker", "Drinks"];
+let interestIn = user.interestedIn.slice(4);
+console.log(interestIn);
+let myLikes = interestIn;
 let theirLikes = [];
 
 matchedUsers.map((userObject) => {
     let matchedInterestCount = 0;
-    theirLikes = userObject.interestIn;
+    theirLikes = userObject.aboutMe;
 
     myLikes.forEach((like) => {
         if (theirLikes.includes(like)) {
@@ -112,8 +125,9 @@ sortMyData = () => {
       
   };
 
-  find = (startAge, EndAge, Gender, Area) => {
-    API.findYourUser(startAge, EndAge, Gender, Area)
+  find = (id,startAge, EndAge, Gender, Area) => {
+    console.log("find done")
+    API.findYourUser(id,startAge, EndAge, Gender, Area)
       .then(res => {
         
         this.setState({ results: res.data })
@@ -122,17 +136,18 @@ sortMyData = () => {
         this.sortMyData();
         this.setState({finalResults:this.state.results})
         // console.log(parseInt(this.state.results[3].percentage));
-        console.log(this.state.results);
+          console.log(this.state.results);
         console.log(this.state.newResults);
-      
+          // console.log({user.name})
       });
   }
 
   render() {
+    const { isAuthenticated, user } = this.props.auth;
+
     return (
       <Container fluid>
         <Jumbotron>
-
           <Row>
             <Col size="md-11">
           
@@ -142,7 +157,7 @@ sortMyData = () => {
               </h3>
               {/* <Checkbox name="Sports Lover" value="Sports Lover" text="Sports Lover" /> */}
               {/* <button onClick={() => this.find(this.state.startAge, this.state.endAge,this.state.gender, this.state.area)} >Find</button> */}
- <button onClick={() => this.find(20, 30,"male", "Atlanta")} >Find</button>
+ {/* <button onClick={() => this.find(20, 30,"male", "Atlanta")} >Find</button> */}
             </Col>
             <Col size="md-1">
               <Button link="/dashboard" text="Back To Dashboard" />
@@ -167,12 +182,12 @@ sortMyData = () => {
                     <div>
                       <Name 
     
-                        img={user.avatarUrl}
-                        usernames={user.username}
-                        age={user.age}
-                        Gender={user.gender}
-                        City={user.location}
-                        About_me={user.About_me}
+                        img={user.avatar}
+                        usernames={user.name}
+                        age={user.myAge}
+                        Gender={user.myGender}
+                        City={user.myLocation}
+                        About_me={user.aboutMe}
                         id={user._id}
                         percentage={user.percentage}
                         key={user._id}
@@ -217,6 +232,15 @@ sortMyData = () => {
   }
 }
 
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(Matches);
+
 const container = document.createElement('div');
 document.body.appendChild(container);
-export default Matches;
+// export default Matches;
