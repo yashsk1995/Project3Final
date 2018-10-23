@@ -54,7 +54,7 @@ module.exports = {
     console.log(req.params.saveid);
 
     db.Users
-    .findByIdAndUpdate(req.params.id,
+    .findByIdAndUpdate({"_id":req.params.id},
     {$push:{saved: req.params.saveid }},{'new':true}).then(console.log("done"))
   }
 };
