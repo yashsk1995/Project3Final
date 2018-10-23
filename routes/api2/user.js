@@ -17,5 +17,9 @@ router
 .route("/:id/:startAge/:EndAge/:Gender/:Area")
 .get(userController.findchoices);
 
+router
+.route("/:id/:saveid")
+.get(userController.save);
+
 
 module.exports = router;
