@@ -52,7 +52,12 @@ router.post("/register", (req, res) => {
           email: req.body.email,
           avatar: req.body.avatar,
           password: req.body.password,
-          password2: req.body.password2
+          password2: req.body.password2,
+          myLocation: req.body.myLocation,
+          myGender: req.body.myGender,
+          myAge: req.body.myAge,
+          aboutMe: req.body.aboutMe,
+          interestedIn: req.body.interestedIn
         });
 
         //Bcrypt will generate salt and hash password inside it
