@@ -18,6 +18,18 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  myAge: {
+    type: String,
+    required: true
+  },
+  myGender: {
+    type: String,
+    required: true
+  },
+  myLocation: {
+    type: String,
+    required: true
+  },
   aboutMe: {
     type: [String],
     required: true
@@ -29,6 +41,10 @@ const UserSchema = new Schema({
   date: {
     type: Date,
     default: Date.now
+  },
+  saved: {
+    type: [String],
+    required: false
   }
 });
 
