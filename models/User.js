@@ -32,6 +32,15 @@ const UserSchema = new Schema({
  },
  saved:{
    type:[String]
+ },
+ myAge: {
+   type:Number
+ },
+ myGender: {
+   type:String
+ },
+ myLocation: {
+   type:String
  }
 });
 
