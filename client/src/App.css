@@ -127,3 +127,29 @@ img {
 .btn-upload {
   background-color: whitesmoke;
 }
+
+/* Drop zone ######################################### */
+.dropZone {
+  height: 340px;
+  width: 340px;
+  border: 2px dotted black;
+  border-radius: 50%;
+  background-image: url("https://image.ibb.co/iV9AyA/user-Place-Holder-Image.png");
+  background-size: 340px 340px;
+}
+
+.dropZoneImage {
+  border-radius: 50%;
+}
+
+.imageUploadRows {
+  padding: 10px;
+}
+
+.show {
+  display: inline;
+}
+
+.hide {
+  display: none;
+}
