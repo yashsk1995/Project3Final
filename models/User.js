@@ -32,11 +32,11 @@ const UserSchema = new Schema({
   },
   aboutMe: {
     type: [String],
-    required: true
+    required: false
   },
   interestedIn: {
     type: [String],
-    required: true
+    required: false
   },
   date: {
     type: Date,

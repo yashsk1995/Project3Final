@@ -12,6 +12,14 @@ class Register extends Component {
   constructor() {
     super();
     this.state = {
+      formErrormyAge: 0,
+      formErrormyGender: 0,
+      formErrormyLocation: 0,
+      formErrorlookingForGender: 0,
+      formErrorloogingForAge1: 0,
+      formErrorlookingForAge2: 0,
+      formErrorlookingForLocation: 0,
+
       step1: 0,
       step2: 0,
       step3: 0,
@@ -79,7 +87,15 @@ class Register extends Component {
   //proceed to step 3
   proceedToStep3 = e => {
     e.preventDefault();
-    this.setState({ step2: 0, step3: 1 });
+    this.state.myage === ""
+      ? this.setState({ formErrormyAge: 1 })
+      : this.setState({ formErrormyAge: 0 });
+    this.state.mygender === ""
+      ? this.setState({ formErrormyGender: 1 })
+      : this.setState({ formErrormyGender: 0 });
+    this.state.mylocation === ""
+      ? this.setState({ formErrormyLocation: 1 })
+      : this.setState({ step2: 0, step3: 1 });
   };
 
   //on file upload function
@@ -178,7 +194,7 @@ class Register extends Component {
               <form onSubmit={this.onSubmit}>
                 {/* upload Image ####################################################################################--> */}
                 <div className={this.state.step1 === 0 ? "show" : "hide"}>
-                  <div class="imageAndUploadBtn">
+                  <div className="imageAndUploadBtn">
                     <div className="imageUploadRows row text-center justify-content-center">
                       <div>
                         <div
@@ -200,6 +216,8 @@ class Register extends Component {
                         <img
                           className="dropZoneImage"
                           src={this.state.avatar}
+                          height="335px"
+                          width="335px"
                           alt=""
                         />
                       </Dropzone>
@@ -229,13 +247,22 @@ class Register extends Component {
                     <p className="form-inline justify-content-center">
                       I am &nbsp;
                       <input
-                        className="form-control form-control-sm col-sm-1 "
+                        className={
+                          this.state.formErrormyAge === 0
+                            ? "form-control form-control-sm col-sm-1"
+                            : "is-invalid form-control form-control-sm col-sm-1"
+                        }
                         name="myage"
                         onChange={this.onChange}
                       />
                       &nbsp; years old &nbsp;
                       <select
-                        className="form-control form-control-sm col-sm-1"
+                        // className="form-control form-control-lg col-sm-1"
+                        className={
+                          this.state.formErrormyGender === 0
+                            ? "form-control form-control-lg col-sm-1"
+                            : "is-invalid form-control form-control-lg col-sm-1"
+                        }
                         name="mygender"
                         onChange={this.onChange}
                       >
@@ -245,7 +272,12 @@ class Register extends Component {
                       </select>
                       &nbsp; looking for a roommate in &nbsp;
                       <input
-                        className="form-control form-control-sm col-sm-1"
+                        // className="form-control form-control-sm col-sm-1"
+                        className={
+                          this.state.formErrormyLocation === 0
+                            ? "form-control form-control-sm col-sm-1"
+                            : "is-invalid form-control form-control-sm col-sm-1"
+                        }
                         name="mylocation"
                         onChange={this.onChange}
                       />
@@ -380,7 +412,7 @@ class Register extends Component {
                     <p className="form-inline justify-content-center">
                       I am a looking for &nbsp;
                       <select
-                        className="form-control form-control-sm col-sm-1"
+                        className="form-control form-control-lg col-sm-1"
                         name="lookingForgender"
                         onChange={this.onChange}
                       >
