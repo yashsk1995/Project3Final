@@ -162,8 +162,6 @@ render() {
                       id={user._id}
                       percentage={user.percentage}
                       key={user._id}
-
-
                       hiddenid={() => this.hiddenid(user._id)}
                       show={() => this.showModal(user._id)}
                     // show={this.showModal(user._id)}

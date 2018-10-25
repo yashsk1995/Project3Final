@@ -21,5 +21,9 @@ router
 .route("/:id/:saveid")
 .get(userController.save);
 
+router
+.route("/remove/:id/:saveid")
+.get(userController.removeArrayItem);
+
 
 module.exports = router;

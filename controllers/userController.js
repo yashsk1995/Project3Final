@@ -57,5 +57,17 @@ module.exports = {
     db.Users
     .findByIdAndUpdate({"_id":req.params.id},
     {$push:{saved: req.params.saveid }},{'new':true}).then(console.log("done"))
+  },
+  removeArrayItem:function(req,res){
+    console.log("dedlete?");
+    console.log(req.params.id);
+    console.log(req.params.saveid);
+    db.Users.update(
+      { _id: id },
+      { $pull: { 'saved': req.params.saveid } }
+    );
+    // db.Users
+    // .findByIdAndUpdate({"_id":req.params.id},
+    // {$push:{saved: req.params.saveid }},{'new':true}).then(console.log("done"))
   }
 };
