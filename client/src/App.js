@@ -19,6 +19,7 @@ import Profile from "./pages/Profile";
 import Saved from "./pages/Saved";
 import Matches from "./pages/Matches";
 import Email from "./pages/Email";
+import Admin from "./pages/admin";
 
 import "./App.css";
 
@@ -49,6 +50,7 @@ class App extends Component {
               <Route exact path="/matches" component={Matches} />
               <Route exact path="/saved" component={Saved} />
               <Route exact path="/profile" component={Profile} />
+              <Route exact path="/admin" component={Admin} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
               </Switch>
