@@ -31,7 +31,7 @@ class Matches extends Component {
 
   componentDidMount() 
   //  {/* <button onClick={() => this.find(20, 30,"male", "Atlanta")} >Find</button> */}
-    {
+  {
       const { isAuthenticated, user } = this.props.auth;
       
       this.find(user.id,user.interestedIn[0],user.interestedIn[1],user.interestedIn[2],user.interestedIn[3]);
@@ -131,7 +131,7 @@ sortMyData = () => {
       .then(res => {
         
         this.setState({ results: res.data })
-
+            console.log(this.state.results);
         this.sortByMatches();
         this.sortMyData();
         this.setState({finalResults:this.state.results})
@@ -140,6 +140,14 @@ sortMyData = () => {
         console.log(this.state.newResults);
           // console.log({user.name})
       });
+  }
+  saveUser = (id,saveid) =>{
+    console.log(id);
+    API.save(id,saveid)
+    .then(res => { 
+      console.log("hellloooooooowwww");
+       this.setState({ newsaved: res.data }) 
+      })
   }
 
   render() {
@@ -191,7 +199,8 @@ sortMyData = () => {
                         id={user._id}
                         percentage={user.percentage}
                         key={user._id}
-    
+                        
+                        saveid={() => this.saveUser("5bc791d0aab39903a84b4139",user._id)}
                         hiddenid={() => this.hiddenid(user._id)}
                         show={() => this.showModal(user._id)}
                       // show={this.showModal(user._id)}
@@ -202,14 +211,14 @@ sortMyData = () => {
     
     
                 <Modal show={this.state.show} handleClose={this.hideModal}
-                  avatarUrl={this.state.Info.avatarUrl}
-                  name={this.state.Info.username}
-                  Gender={this.state.Info.gender}
-                  Age={this.state.Info.age}
-                  About_me={this.state.Info.About_me}
-                  interestIn={this.state.Info.interestIn}
-                  location={this.state.Info.location}
-                  contact_number={this.state.Info.contactNumber}
+                  avatarUrl={this.state.Info.avatar}
+                  name={this.state.Info.name}
+                  Gender={this.state.Info.myGender}
+                  Age={this.state.Info.myAge}
+                  About_me={this.state.Info.aboutMe}
+                  interestIn={this.state.Info.interestedIn == undefined ? [] : this.state.Info.interestedIn}
+                  location={this.state.Info.myLocation}
+                  contact_number={this.state.Info._id}
                   email={this.state.Info.email}
 
                   // interestIn={this.state.Info.interestIn}

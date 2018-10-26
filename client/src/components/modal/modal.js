@@ -34,12 +34,20 @@ const Modal = props => {
           <Col size="md-4"></Col>
         </Row>
         <Row>
-          <Col size="md-3"></Col>
+          <Col size="md-2"></Col>
 
-          <Col size="md-5">
-            <h3 className="i1">{props.interestIn}</h3>
+          <Col size="md-8">
+           <h4 className="li">
+           {props.interestIn.map((interest) =>{
+             return (
+               <div>
+                <img className="eimg" src="https://png.icons8.com/material/80/000000/checkmark.png"/><span>{interest}</span>
+               </div>
+             ) 
+           })}
+           </h4>
           </Col>
-          <Col size="md-4"></Col>
+          <Col size="md-2"></Col>
         </Row>
 
         <Row>
