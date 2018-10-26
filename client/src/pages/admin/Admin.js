@@ -21,9 +21,10 @@ class Admin extends Component {
     };
 
     show = () => {
-        API.allUsers()
+        console.log("calling api");
+        API.getUsers()
             .then(res => {
-                this.setState({ users: res.data })
+                this.setState({ users: [res.data] })
                 console.log(res.data);
                 console.log("api called");
             })
@@ -38,14 +39,16 @@ class Admin extends Component {
 
         return (
             <Container fluid>
-                {this.state.users.map(users =>
-                    <Profile img={users.avatar}
+                {this.state.users.map((users, i) => (
+                    <Profile
+                        key={i}
+                        img={users.avatar}
                         usernames={users.name}
                         Gender={users.myGender}
                         age={users.myAge}
                         City={users.myLocation}
-                    ></Profile>
-                )}
+                    />
+                ))}
             </Container>
         )
     }
