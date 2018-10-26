@@ -55,7 +55,7 @@ class Dashboard extends Component {
               color="dash-box dash-box-color-2"
               gyp="glyphicon glyphicon-user"
               title="Profile"
-              text="Edit your profile to get matches as per profile"
+              text="Edit your profile here"
               src="./images/editProfile.png"
               alt="profile"
               linkto="/profile"

@@ -29,5 +29,11 @@ saveUser: function(bookData) {
 },
 sendEamil: function(data){
   return axios.post("/email",data);
+},
+save:function(id,saveid){
+  return axios.get("/api2/users/"+id +"/"+saveid);
+},
+remove:function(id,saveid){
+  return axios.get("/api2/users/remove/"+id +"/"+saveid)
 }
 };
