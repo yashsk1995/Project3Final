@@ -1,32 +1,33 @@
 .mainname{
-  margin-left: 60px;
+  width: 100%;
 }
 .containername {
     position: relative;
     padding: 0;
-    height:auto;   
+    height:20%;   
     float: left;
-    width: 18%;
-    background-color: white;
+    width: 100%;
+    background-color: darkgray;
     margin-left: 45px;
     margin-top: 15px;
-    color: gray;
+    color: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     border: 1px solid white;
     box-shadow: gray 2px 2px 2px 2px;
     border-radius: 10px;
 }
-.hiddenname{
+/* .hiddenname{
   display: none;
-}
+} */
   
   .image1name {
     position: relative;
     display: block;
-    width: 100%;
+    float: left;
+    width: 20%;
     margin: 0px;
     padding: 0;
-    height: 120px;
+    height: 20%;
     border: 1px solid gray;
     border-radius: 10px;
 
@@ -57,7 +58,7 @@
     transform: scale(1);
   }
   
-  .text1name {
+  /* .text1name {
     color: white;
     font-size: 20px;
     position: absolute;
@@ -67,8 +68,8 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
     text-align: center;
-  }
-  .btn1name {
+  } */
+  /* .btn1name {
      background-color: white; 
     border: 2px solid white;
     color:rgb(68, 57, 57);
@@ -81,7 +82,7 @@
     bottom: 0px;
     right: 0px;
     left: 27px;
-}
+} */
 .btn11name {
     background-color: white;
     border: 2px solid white;
@@ -91,12 +92,11 @@
     width: 70%;
     height: 50px;
     position: fixed;
-    top:90px;
-    bottom: 0px;
-    right: 0px;
-    left: 27px;
+    top:30%;
+    margin-right: 20%;
+    margin-left: 20%;
 }
-.btn21name {
+/* .btn21name {
     background-color: white;
     border: 2px solid white;
     color:rgb(68, 57, 57);
@@ -111,13 +111,13 @@
     bottom: 0px;
     right: 0px;
     left: 27px;
-}
-.btn1name :hover{
+} */
+/* .btn1name :hover{
   color:black;
-}
+} */
 .btn11name :hover{
   color:black;
 }
-.btn21name :hover{
+/* .btn21name :hover{
   color:black;
-}
+} */

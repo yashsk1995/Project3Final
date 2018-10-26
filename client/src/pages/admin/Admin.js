@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-import { Col, Row, Container } from "../../components/Grid";
+import { Container } from "../../components/Grid";
 // import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-import Box from "../../components/Box";
-import Jumbotron from "../../components/Jumbotron";
 import { connect } from "react-redux";
 // import { logoutUser } from "../../actions/authActions";
 import API from "../../utils/API";
@@ -16,17 +14,15 @@ class Admin extends Component {
     };
 
     componentDidMount() {
-        console.log("mounted");
         this.show();
     };
 
     show = () => {
-        console.log("calling api");
         API.getUsers()
             .then(res => {
-                this.setState({ users: [res.data] })
+                this.setState({ users: res.data })
                 console.log(res.data);
-                console.log("api called");
+                console.log(this.state.users);
             })
     };
 
