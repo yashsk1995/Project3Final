@@ -36,7 +36,7 @@ class Matches extends Component {
       this.setState({finalResults : ""});
       this.setState({results : ""});
 
-      this.find(user.id,user.interestedIn[2],user.interestedIn[0],user.interestedIn[1],user.interestedIn[3]);
+      this.find(user.id,user.interestedIn[0],user.interestedIn[1],user.interestedIn[2],user.interestedIn[3]);
   }
 
   sortByMatches = () =>{
