@@ -33,7 +33,9 @@ class Matches extends Component {
   //  {/* <button onClick={() => this.find(20, 30,"male", "Atlanta")} >Find</button> */}
   {
       const { isAuthenticated, user } = this.props.auth;
-      
+      this.setState({finalResults : ""});
+      this.setState({results : ""});
+
       this.find(user.id,user.interestedIn[0],user.interestedIn[1],user.interestedIn[2],user.interestedIn[3]);
   }
 
