@@ -32,11 +32,11 @@ const UserSchema = new Schema({
   },
   aboutMe: {
     type: [String],
-    required: true
+    required: false
   },
   interestedIn: {
     type: [String],
-    required: true
+    required: false
   },
   date: {
     type: Date,
@@ -49,3 +49,5 @@ const UserSchema = new Schema({
 });
 
 module.exports = User = mongoose.model("users", UserSchema);
+
+

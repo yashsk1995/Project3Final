@@ -4,7 +4,7 @@ const userController = require("../../controllers/userController");
 // Matches with "/api/books"
 router.route("/")
   .get(userController.findAll)
-  .post(userController.create);
+  // .post(userController.create);
 
 // Matches with "/api/books/:id"
 router
@@ -20,6 +20,10 @@ router
 router
 .route("/:id/:saveid")
 .get(userController.save);
+
+router
+.route("/remove/:id/:saveid")
+.get(userController.removeArrayItem);
 
 
 module.exports = router;

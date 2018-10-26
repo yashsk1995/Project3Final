@@ -31,7 +31,7 @@ class Matches extends Component {
 
   componentDidMount() 
   //  {/* <button onClick={() => this.find(20, 30,"male", "Atlanta")} >Find</button> */}
-    {
+  {
       const { isAuthenticated, user } = this.props.auth;
       
       this.find(user.id,user.interestedIn[0],user.interestedIn[1],user.interestedIn[2],user.interestedIn[3]);
@@ -131,7 +131,7 @@ sortMyData = () => {
       .then(res => {
         
         this.setState({ results: res.data })
-
+            console.log(this.state.results);
         this.sortByMatches();
         this.sortMyData();
         this.setState({finalResults:this.state.results})
@@ -154,7 +154,6 @@ sortMyData = () => {
     const { isAuthenticated, user } = this.props.auth;
 
     return (
-      
       <Container fluid>
         <Jumbotron>
           <Row>
@@ -177,7 +176,7 @@ sortMyData = () => {
          
            {this.state.finalResults.length ? (
              <div>
-             {this.state.finalResults.map(user1 => (
+             {this.state.finalResults.map(user => (
                 //   <div>
                 //   <h3>{user.username}</h3>
                   
@@ -191,19 +190,19 @@ sortMyData = () => {
                     <div>
                       <Name 
     
-                        img={user1.avatar}
-                        usernames={user1.name}
-                        age={user1.myAge}
-                        Gender={user1.myGender}
-                        City={user1.myLocation}
-                        About_me={user1.aboutMe}
-                        id={user1._id}
-                        percentage={user1.percentage}
-                        key={user1._id}
+                        img={user.avatar}
+                        usernames={user.name}
+                        age={user.myAge}
+                        Gender={user.myGender}
+                        City={user.myLocation}
+                        About_me={user.aboutMe}
+                        id={user._id}
+                        percentage={user.percentage}
+                        key={user._id}
                         
-                        saveid={() => this.saveUser(user.id,user1._id)}
-                        hiddenid={() => this.hiddenid(user1._id)}
-                        show={() => this.showModal(user1._id)}
+                        saveid={() => this.saveUser("5bc791d0aab39903a84b4139",user._id)}
+                        hiddenid={() => this.hiddenid(user._id)}
+                        show={() => this.showModal(user._id)}
                       // show={this.showModal(user._id)}
                       //  showdata={  () => this.showdata(user._id)}
                       />        </div>

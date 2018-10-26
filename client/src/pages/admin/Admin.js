@@ -5,7 +5,7 @@ import { logoutUser } from "../../actions/authActions";
 import { connect } from "react-redux";
 // import { logoutUser } from "../../actions/authActions";
 import API from "../../utils/API";
-import Profile from "../../components/cards";
+import Profiles from "../../components/cards";
 
 
 class Admin extends Component {
@@ -36,7 +36,7 @@ class Admin extends Component {
         return (
             <Container fluid>
                 {this.state.users.map((users, i) => (
-                    <Profile
+                    <Profiles
                         key={i}
                         img={users.avatar}
                         usernames={users.name}
