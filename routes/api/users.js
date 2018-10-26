@@ -15,6 +15,16 @@ const User = require("../../models/User");
 //test
 var user;
 
+//Test for image upload
+router.post("/image-upload", (req, res) => {
+  console.log("uploading image .........");
+});
+
+router.get("/image-upload", (req, res) => {
+  res.json({ message: "users works" });
+  console.log("Hello");
+});
+
 // @route  GET api/users/test
 // @desc Test post routes
 // @public route
