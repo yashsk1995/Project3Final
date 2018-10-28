@@ -14,7 +14,7 @@ const Profile = props => (
         <h4> {props.Gender} , {props.age} , {props.City} </h4>
 
         <div className="overlay1name">
-          <button id={props.id} className="btn11name" onClick={props.hiddenid}><i className="fa fa-trash">&nbsp;Delete</i></button>
+          <button id={props.id} className="btn11name" onClick={props.onClick}><i className="fa fa-trash">&nbsp;Delete</i></button>
         </div>
       </div>
 
