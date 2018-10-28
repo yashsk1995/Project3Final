@@ -73,6 +73,88 @@ class Register extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
+  //function to grab checked items
+  checkIfChecked = () => {
+    const aboutMe = [];
+    if (this.state.iamsportLover.length > 0) {
+      aboutMe.push(this.state.iamsportLover);
+    }
+    if (this.state.iampetLover.length > 0) {
+      aboutMe.push(this.state.iampetLover);
+    }
+    if (this.state.iamsnorer.length > 0) {
+      aboutMe.push(this.state.iamsnorer);
+    }
+    if (this.state.iamcleanFreak.length > 0) {
+      aboutMe.push(this.state.iamcleanFreak);
+    }
+    if (this.state.iamcomputerNeard.length > 0) {
+      aboutMe.push(this.state.iamcomputerNeard);
+    }
+    if (this.state.iamheavyDrinker.length > 0) {
+      aboutMe.push(this.state.iamheavyDrinker);
+    }
+    if (this.state.iampartyLover.length > 0) {
+      aboutMe.push(this.state.iampartyLover);
+    }
+    if (this.state.iamsmoker.length > 0) {
+      aboutMe.push(this.state.iamsmoker);
+    }
+    if (this.state.iamborrower.length > 0) {
+      aboutMe.push(this.state.iamborrower);
+    }
+    console.log(aboutMe);
+    return aboutMe;
+  };
+
+  //function to grab checked items
+  checkIfChecked2 = () => {
+    const interesteIn = [];
+
+    if (this.state.lookingForgender.length > 0) {
+      interesteIn.push(this.state.lookingForgender);
+    }
+    if (this.state.lookingForage1.length > 0) {
+      interesteIn.push(this.state.lookingForage1);
+    }
+    if (this.state.lookingForage2.length > 0) {
+      interesteIn.push(this.state.lookingForage2);
+    }
+    if (this.state.lookingForlocation.length > 0) {
+      interesteIn.push(this.state.lookingForlocation.toLowerCase());
+    }
+    if (this.state.partnerloveSports.length > 0) {
+      interesteIn.push(this.state.partnerloveSports);
+    }
+    if (this.state.partnerlovePets.length > 0) {
+      interesteIn.push(this.state.partnerlovePets);
+    }
+    if (this.state.partnerdoesNotSnore.length > 0) {
+      interesteIn.push(this.state.partnerdoesNotSnore);
+    }
+    if (this.state.partnercleans.length > 0) {
+      interesteIn.push(this.state.partnercleans);
+    }
+    if (this.state.partnerisComputerNerd.length > 0) {
+      interesteIn.push(this.state.partnerisComputerNerd);
+    }
+    if (this.state.partnerdrinks.length > 0) {
+      interesteIn.push(this.state.partnerdrinks);
+    }
+
+    if (this.state.partnerloveParties.length > 0) {
+      interesteIn.push(this.state.partnerloveParties);
+    }
+    if (this.state.partnersmokes.length > 0) {
+      interesteIn.push(this.state.partnersmokes);
+    }
+    if (this.state.partnerdoesNotBorrow.length > 0) {
+      interesteIn.push(this.state.partnerdoesNotBorrow);
+    }
+    console.log(interesteIn);
+    return interesteIn;
+  };
+
   //on check function
   onCheck = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -135,6 +217,8 @@ class Register extends Component {
 
   //On submit function
   onSubmit = e => {
+    const aboutMe = this.checkIfChecked();
+    const intrestedIn = this.checkIfChecked2();
     // console.log("Test for image url " + this.state.file[0].name);
     e.preventDefault();
     console.log(this.state); // This is a test remove this later
@@ -143,38 +227,14 @@ class Register extends Component {
       email: this.state.email,
       password: this.state.password,
       password2: this.state.password2,
-      myAge: this.state.myage,
+      myAge: parseInt(this.state.myage),
       myGender: this.state.mygender,
-      myLocation: this.state.mylocation,
+      myLocation: this.state.mylocation.toLocaleLowerCase(),
 
       avatar: this.state.avatar,
       // "https://banner2.kisspng.com/20180410/bbw/kisspng-avatar-user-medicine-surgery-patient-avatar-5acc9f7a7cb983.0104600115233596105109.jpg",
-      aboutMe: [
-        this.state.iamsportLover,
-        this.state.iampetLover,
-        this.state.iamsnorer,
-        this.state.iamcleanFreak,
-        this.state.iamcomputerNeard,
-        this.state.iamheavyDrinker,
-        this.state.iampartyLover,
-        this.state.iamsmoker,
-        this.state.iamborrower
-      ],
-      interestedIn: [
-        this.state.lookingForgender,
-        this.state.lookingForage1,
-        this.state.lookingForage2,
-        this.state.lookingForlocation,
-        this.state.partnerloveSports,
-        this.state.partnerlovePets,
-        this.state.partnerdoesNotSnore,
-        this.state.partnercleans,
-        this.state.partnerisComputerNerd,
-        this.state.partnerdrinks,
-        this.state.partnerloveParties,
-        this.state.partnersmokes,
-        this.state.partnerdoesNotBorrow
-      ],
+      aboutMe: aboutMe,
+      interestedIn: intrestedIn,
       saved: this.state.saved
     };
 

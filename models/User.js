@@ -18,6 +18,7 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+
   myAge: {
     type: Number,
     required: true
@@ -32,20 +33,20 @@ const UserSchema = new Schema({
   },
   aboutMe: {
     type: [String],
-    required: false
+    required: true
   },
   interestedIn: {
     type: [String],
-    required: false
+    required: true
   },
   date: {
     type: Date,
     default: Date.now
   },
   saved: {
-    type: [String],
-    required: false
+    type: [String]
   }
 });
+
 
 module.exports = User = mongoose.model("users", UserSchema);
