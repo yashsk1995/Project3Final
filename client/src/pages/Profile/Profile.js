@@ -114,7 +114,7 @@ class Profile extends Component {
   //Function that changes the initial state as user starts typing on the input boxes
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-
+    console.log("done");
   };
 
 
