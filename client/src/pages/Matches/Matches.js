@@ -40,6 +40,8 @@ class Matches extends Component {
   }
 
   sortByMatches = () =>{
+
+    
     console.log(this.state.results);
     let matchedUsers = this.state.results ;
     const { isAuthenticated, user } = this.props.auth;

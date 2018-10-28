@@ -25,5 +25,10 @@ router
 .route("/remove/:id/:saveid")
 .get(userController.removeArrayItem);
 
+router
+.route("/saveProfile/:id/:aboutMe/:interestedIn/:myLocation/:myGender/:myAge")
+.get(userController.saveProfile);
+
+
 
 module.exports = router;

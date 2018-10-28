@@ -48,10 +48,61 @@ class Profile extends Component {
       avatar: "",
       saved: [],
       errors: {},
-      user: []
+      user: [],
+      interestedIn2:[],
+      aboutMe2:[],
+      myAge2:[],
+      myLocation2:[],
+      myGender2:[]
     };
   }
 
+
+  updateProfile = (id,aboutMe,interestedIn,myLocation,myGender,myAge) => {
+    const { isAuthenticated, user } = this.props.auth;
+    const aboutMe1 = [];
+    aboutMe1.push(this.state.iamsportLover);
+    aboutMe1.push(this.state.iampetLover);
+    aboutMe1.push(this.state.iamsnorer);
+    aboutMe1.push(this.state.iamcleanFreak);
+    aboutMe1.push(this.state.iamcomputerNeard);
+    aboutMe1.push(this.state.iamheavyDrinker);
+    aboutMe1.push(this.state.iampartyLover);
+    aboutMe1.push(this.state.iamsmoker);
+    aboutMe1.push(this.state.iamborrower);
+    
+     let interestedIn1 = [];
+        interestedIn1.push(this.state.lookingForgender);
+        interestedIn1.push(this.state.lookingForage1);
+        interestedIn1.push(this.state.lookingForage2);
+        interestedIn1.push(this.state.lookingForlocation);
+        interestedIn1.push(this.state.partnerloveSports);
+        interestedIn1.push(this.state.partnerlovePets);
+        interestedIn1.push(this.state.partnerdoesNotSnore);
+        interestedIn1.push(this.state.partnercleans);
+        interestedIn1.push(this.state.partnerisComputerNerd);
+        interestedIn1.push(this.state.partnerdrinks);
+        interestedIn1.push(this.state.partnerloveParties);
+        interestedIn1.push(this.state.partnersmokes);
+        interestedIn1.push(this.state.partnerdoesNotBorrow);
+      console.log("LOOKINGFORGENDER",this.state.partnerisComputerNerd);
+      console.log("lookingforage1", this.state.partnerdrinks);
+
+      console.log("lookingforage1", this.state.partnerdoesNotSnore);
+     const myAge1= this.state.myage;
+     const myGender1= this.state.mygender;
+     const myLocation1 =this.state.mylocation;
+     console.log(aboutMe1);
+     console.log("INTEREST!", interestedIn1);
+     console.log(myAge1);
+     console.log(myGender1);
+     console.log(myLocation1);
+    API.saveProfile(user.id,aboutMe1,interestedIn1,myLocation1,myGender1,myAge1)
+    .then(res => { this.setState({ user: res.data }); console.log(this.state.user); })
+
+    .catch(err => console.log(err));
+
+  }
   //Component will receive props - life cycle
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
@@ -65,19 +116,36 @@ class Profile extends Component {
   };
 
   onCheck = e => {
-    this.setState({ [e.target.name]: e.target.value });
+    console.log(e.target.checked)
+    if (e.target.checked) {
+      this.setState({ [e.target.name]: e.target.value });
+    } else  {
+      this.setState({ [e.target.name]: "" });
+      
+    } 
   };
+
+
   componentDidMount() {
     const { isAuthenticated, user } = this.props.auth;
-
+console.log(this.state.user);
     this.loadUsers(user.id);
+    this.updateProfile();
+
+
+
     
   }
   renderDrink(item,name,value,text) {
     const { isAuthenticated, user } = this.props.auth;
-
-    if(user.aboutMe.includes(item)) {
-      console.log("ddddddddd");
+    let array2=[];
+    if (this.state.user.aboutMe != undefined) {
+      this.state.user.aboutMe.map(item => {
+        array2.push(item)
+      })
+    }
+    if(array2.includes(item)) {
+      console.log(value);
       return (
         <div className="col-sm-4">
         <div className="form-check">
@@ -86,7 +154,9 @@ class Profile extends Component {
             name={name}
             value={value}
             onChange={this.onCheck}
-            checked
+
+            // checked
+            defaultChecked
           />
           &nbsp;
           <label className="form-check-label">{text}</label>
@@ -101,6 +171,7 @@ class Profile extends Component {
           <input
             type="checkbox"
             name={name}
+            
             value={value}
             onChange={this.onCheck}
           />
@@ -114,9 +185,26 @@ class Profile extends Component {
 
   renderintrest(item,name,value,text) {
     const { isAuthenticated, user } = this.props.auth;
+      let array= [];
+      console.log(typeof(this.state.user.interestedIn))
+    //   array=  this.state.user.map(a => {
+    //    a.interestedIn.map(b => {
+    //      if(b){
+    //        array.push(b)
+    //      }
+    //    })
+    //  })
+    // Object.keys(this.state.user.interestedIn).map((item) => (
+    //     array.push(item)
+    // ))
+    if (this.state.user.interestedIn != undefined) {
+      this.state.user.interestedIn.map(item => {
+        array.push(item)
+      })
+    }
 
-    if(user.interestedIn.includes(item)) {
-      console.log("ddddddddd");
+    if(array.includes(item)) {
+      console.log(value);
       return (
         <div className="col-sm-4">
         <div className="form-check">
@@ -125,7 +213,7 @@ class Profile extends Component {
             name={name}
             value={value}
             onChange={this.onCheck}
-            checked
+            defaultChecked
           />
           &nbsp;
           <label className="form-check-label">{text}</label>
@@ -133,7 +221,7 @@ class Profile extends Component {
       </div>
       );
     } else {
-      console.log("mmmmmmmmmmm  ");
+      console.log("mmmmmmmmmmm ");
       return (
         <div className="col-sm-4">
         <div className="form-check">
@@ -153,8 +241,41 @@ class Profile extends Component {
 
 
   loadUsers = (id) => {
+    const { isAuthenticated, user } = this.props.auth;
+
     API.getInfoById(id)
-      .then(res => { this.setState({ user: res.data }); console.log(this.state.user); })
+      .then(res => { this.setState({ user: res.data }); console.log("USER",this.state.user); 
+        this.setState({myage:this.state.user.myAge,
+          mygender:this.state.user.myGender,
+          mylocation:this.state.user.myLocation,
+      iamsportLover:user.aboutMe[0],
+      iampetLover:user.aboutMe[1],
+      iamsnorer:user.aboutMe[2],
+      iamcleanFreak:user.aboutMe[3],
+      iamcomputerNeard:user.aboutMe[4],
+      iamheavyDrinker:user.aboutMe[5],
+      iampartyLover:user.aboutMe[6],
+      iamsmoker:user.aboutMe[7],
+      iamborrower:user.aboutMe[8],
+
+      
+      lookingForgender:user.interestedIn[0],
+      lookingForage1:user.interestedIn[1],
+      lookingForage2:user.interestedIn[2],
+      lookingForlocation:user.interestedIn[3],
+      partnerloveSports:user.interestedIn[4],
+      partnerlovePets:user.interestedIn[5],
+      partnerdoesNotSnore:user.interestedIn[6],
+      partnercleans:user.interestedIn[7],
+      partnerisComputerNerd:user.interestedIn[8],
+      partnerdrinks:user.interestedIn[9],
+      partnerloveParties:user.interestedIn[10],
+      partnersmokes:user.interestedIn[11],
+      partnerdoesNotBorrow:user.interestedIn[12]
+          
+        })
+
+    })
 
       .catch(err => console.log(err));
 
@@ -228,17 +349,21 @@ class Profile extends Component {
                       className="form-control form-control-sm col-sm-1 "
                       name="myage"
                       onChange={this.onChange}
-                      value={this.state.user.myAge}
+                      // value={this.state.user.myAge}
+                      defaultValue={this.state.user.myAge}
+
                     />
                     &nbsp; years old &nbsp;
                     <select
                       className="form-control form-control-sm col-sm-1"
                       name="mygender"
                       onChange={this.onChange}
-                      value={this.state.user.myGender}
+                      // value={this.state.user.myGender}
+                      defaultValue={this.state.user.myGender}
+                     
 
                     >
-                      <option> </option>
+                     <option></option>
                       <option> Male </option>
                       <option> Female </option>
                     </select>
@@ -247,7 +372,9 @@ class Profile extends Component {
                       className="form-control form-control-sm col-sm-1"
                       name="mylocation"
                       onChange={this.onChange}
-                      value={this.state.user.myLocation}
+                      // value={this.state.user.myLocation}
+                      defaultValue={this.state.user.myLocation}
+
 
                     />
                     &nbsp; area. I belong to the tribe of
@@ -356,9 +483,11 @@ class Profile extends Component {
                       className="form-control form-control-sm col-sm-1"
                       name="lookingForgender"
                       onChange={this.onChange}
-                      value={user.interestedIn[2]}
+                      defaultValue={user.interestedIn[0]}
+                      // value={user.interestedIn[0]}
                     >
-                      <option> </option>
+                                         <option></option>
+
                       <option> Male </option>
                       <option> Female </option>
                     </select>
@@ -367,21 +496,24 @@ class Profile extends Component {
                       className="form-control form-control-sm col-sm-1 "
                       name="lookingForage1"
                       onChange={this.onChange}
-                      value={user.interestedIn[0]}
+                      // value={user.interestedIn[1]}
+                      defaultValue={user.interestedIn[1]}
                     />
                     &nbsp;-&nbsp;
                     <input
                       className="form-control form-control-sm col-sm-1 "
                       name="lookingForage2"
                       onChange={this.onChange}
-                      value={user.interestedIn[1]}
-                    />
+                      // value={user.interestedIn[2]}
+                      defaultValue={user.interestedIn[2]}
+/>
                     &nbsp; years old, who lives in &nbsp;
                     <input
                       className="form-control form-control-sm col-sm-1"
                       name="lookingForlocation"
                       onChange={this.onChange}
-                      value={user.interestedIn[3]}
+                      // value={user.interestedIn[3]}
+                      defaultValue={user.interestedIn[3]}
                     />
                     &nbsp; and who
                   </p>
@@ -414,7 +546,7 @@ class Profile extends Component {
                       <label className="form-check-label">Loves pets</label>
                     </div>
                   </div> */}
-                   {this.renderintrest("snorer","partner-doesNotSnore","snorer","Does not snore")}
+                   {this.renderintrest("snorer","partnerdoesNotSnore","snorer","Does not snore")}
 
 
                   {/* <div className="col-sm-4">
@@ -444,7 +576,7 @@ class Profile extends Component {
                       <label className="form-check-label">Cleans</label>
                     </div>
                   </div> */}
-                    {this.renderintrest("computer neard","partner-isComputerNerd","computer neard","Is a computer neard")}
+                    {this.renderintrest("computer neard","partnerisComputerNerd","computer neard","Is a computer neard")}
 
                   {/* <div className="col-sm-4">
                     <div className="formcheck">
@@ -524,7 +656,7 @@ class Profile extends Component {
                   {/* <!--Proceed btn ####################################################################################--> */}
 
                   <div className="proceed-btn col-sm-12 text-center">
-                    <p className="btn btn-primary " onClick={this.hideIntro}>
+                    <p className="btn btn-primary " onClick={this.updateProfile}>
                       Update
                     </p>
                   </div>
