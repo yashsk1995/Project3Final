@@ -154,46 +154,116 @@ sortMyData = () => {
       })
   }
 
-  render() {
-    const { isAuthenticated, user } = this.props.auth;
+//   render() {
+//     const { isAuthenticated, user } = this.props.auth;
 
-    return (
-      <Container fluid>
-        <Jumbotron>
-          <Row>
-            <Col size="md-11">
+//     return (
+//       <Container fluid>
+//         <Jumbotron>
+//           <Row>
+//             <Col size="md-11">
           
-              <h3>Find Your Matches</h3>
+//               <h3>Find Your Matches</h3>
 
-              <h3>I am Looking for age between
-              </h3>
-              {/* <Checkbox name="Sports Lover" value="Sports Lover" text="Sports Lover" /> */}
-              {/* <button onClick={() => this.find(this.state.startAge, this.state.endAge,this.state.gender, this.state.area)} >Find</button> */}
- {/* <button onClick={() => this.find(20, 30,"male", "Atlanta")} >Find</button> */}
-            </Col>
-            <Col size="md-1">
-              <Button link="/dashboard" text="Back To Dashboard" />
+//               <h3>I am Looking for age between
+//               </h3>
+//               {/* <Checkbox name="Sports Lover" value="Sports Lover" text="Sports Lover" /> */}
+//               {/* <button onClick={() => this.find(this.state.startAge, this.state.endAge,this.state.gender, this.state.area)} >Find</button> */}
+//  {/* <button onClick={() => this.find(20, 30,"male", "Atlanta")} >Find</button> */}
+//             </Col>
+//             <Col size="md-1">
+//               <Button link="/dashboard" text="Back To Dashboard" />
 
-            </Col>
-          </Row>
-          </Jumbotron>
+//             </Col>
+//           </Row>
+//           </Jumbotron>
          
-           {this.state.finalResults.length ? (
-             <div>
-             {this.state.finalResults.map(user1 => (
-                //   <div>
-                //   <h3>{user.username}</h3>
+//            {this.state.finalResults.length ? (
+//              <div>
+//              {this.state.finalResults.map(user1 => (
+//                 //   <div>
+//                 //   <h3>{user.username}</h3>
                   
-                // </div>
-                <div>
+//                 // </div>
+//                 <div>
 
-                {
+//                 {
                   
-                  this.state.showMe ? 
+//                   this.state.showMe ? 
                   
-                    <div>
-                      <Name 
+//                     <div>
+//                       <Name 
     
+//                         img={user1.avatar}
+//                         usernames={user1.name}
+//                         age={user1.myAge}
+//                         Gender={user1.myGender}
+//                         City={user1.myLocation}
+//                         About_me={user1.aboutMe}
+//                         id={user1._id}
+//                         percentage={user1.percentage}
+//                         key={user1._id}
+                        
+//                         saveid={() => this.saveUser(user.id,user1._id)}
+//                         hiddenid={() => this.hiddenid(user1._id)}
+//                         show={() => this.showModal(user1._id)}
+//                       // show={this.showModal(user._id)}
+//                       //  showdata={  () => this.showdata(user._id)}
+//                       />        </div>
+//                     : null
+//                 }
+    
+    
+//                 <Modal show={this.state.show} handleClose={this.hideModal}
+//                   avatarUrl={this.state.Info.avatar}
+//                   name={this.state.Info.name}
+//                   Gender={this.state.Info.myGender}
+//                   Age={this.state.Info.myAge}
+//                   About_me={this.state.Info.aboutMe}
+//                   interestIn={this.state.Info.interestedIn == undefined ? [] : this.state.Info.interestedIn}
+//                   location={this.state.Info.myLocation}
+//                   contact_number={this.state.Info._id}
+//                   email={this.state.Info.email}
+
+//                   // interestIn={this.state.Info.interestIn}
+//                    />
+    
+//               </div>
+//               ))}
+//               </div>
+//             ) : (
+//               <h3>No Results to Display</h3>
+//             )}
+
+//             <div>
+//         {/* {this.state.usernames.map(user => ( */}
+         
+//         {/* ))} */}
+//       </div>
+//       </Container>
+//     );
+//   }
+// }
+render(){
+  const { isAuthenticated, user } = this.props.auth;
+
+return (
+
+  <div>
+    {this.state.finalResults.length ? (
+            <Container fluid>
+                              <Row>
+                <Col size="md-0">
+                </Col>
+            {this.state.finalResults.map(user1 => (
+              <Col size="md-4">
+                  {
+
+                    this.state.showMe ?
+
+
+                      <Name
+
                         img={user1.avatar}
                         usernames={user1.name}
                         age={user1.myAge}
@@ -203,47 +273,53 @@ sortMyData = () => {
                         id={user1._id}
                         percentage={user1.percentage}
                         key={user1._id}
-                        
-                        saveid={() => this.saveUser(user.id,user1._id)}
+
+                        saveid={() => this.saveUser(user.id, user1._id)}
                         hiddenid={() => this.hiddenid(user1._id)}
                         show={() => this.showModal(user1._id)}
-                      // show={this.showModal(user._id)}
-                      //  showdata={  () => this.showdata(user._id)}
-                      />        </div>
-                    : null
-                }
-    
-    
-                <Modal show={this.state.show} handleClose={this.hideModal}
-                  avatarUrl={this.state.Info.avatar}
-                  name={this.state.Info.name}
-                  Gender={this.state.Info.myGender}
-                  Age={this.state.Info.myAge}
-                  About_me={this.state.Info.aboutMe}
-                  interestIn={this.state.Info.interestedIn == undefined ? [] : this.state.Info.interestedIn}
-                  location={this.state.Info.myLocation}
-                  contact_number={this.state.Info._id}
-                  email={this.state.Info.email}
+
+                      />
+                      : null
+                  }
+
+                  <Modal show={this.state.show} handleClose={this.hideModal}
+                    avatarUrl={this.state.Info.avatar}
+                    name={this.state.Info.name}
+                    Gender={this.state.Info.myGender}
+                    Age={this.state.Info.myAge}
+                    About_me={this.state.Info.aboutMe}
+                    interestIn={this.state.Info.interestedIn == undefined ? [] : this.state.Info.interestedIn}
+                    location={this.state.Info.myLocation}
+                    contact_number={this.state.Info._id}
+                    email={this.state.Info.email}
 
                   // interestIn={this.state.Info.interestIn}
-                   />
-    
-              </div>
-              ))}
-              </div>
-            ) : (
-              <h3>No Results to Display</h3>
-            )}
+                  />
+                </Col>
 
-            <div>
-        {/* {this.state.usernames.map(user => ( */}
-         
-        {/* ))} */}
-      </div>
-      </Container>
-    );
-  }
+        ))}
+        <Col size="md-8">
+                </Col>
+                            </Row>
+
+            </Container>
+
+    ) : (
+        <h3>No Results to Display</h3>
+      )}
+
+
+
+  </div>
+
+
+);
 }
+}
+
+
+
+
 
 const mapStateToProps = state => ({
   auth: state.auth
