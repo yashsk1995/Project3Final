@@ -6,6 +6,7 @@ const passport = require("passport");
 const users = require("./routes/api/users");
 const profile = require("./routes/api/profile");
 const posts = require("./routes/api/posts");
+const admin = require("./routes/api3/users");
 
 const routes = require("./routes");
 
@@ -43,6 +44,7 @@ require("./config/passport")(passport);
 app.use("/api/users/", users);
 app.use("/api/profile", profile);
 app.use("/api/posts", posts);
+app.use("/api/admin", admin);
 // Add routes, both API and view
 app.use(routes);
 

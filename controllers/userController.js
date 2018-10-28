@@ -69,5 +69,25 @@ module.exports = {
     // db.Users
     // .findByIdAndUpdate({"_id":req.params.id},
     // {$push:{saved: req.params.saveid }},{'new':true}).then(console.log("done"))
+  },
+  saveProfile:function(req,res){
+    console.log("profile!!!!!!!!!!");
+    console.log(req.params.id)
+    console.log(req.params.aboutMe)
+    console.log(req.params.interestedIn)
+    console.log(req.params.myLocation)
+    console.log(req.params.myGender)
+    console.log(req.params.myAge)
+    db.Users.update(
+      { _id: req.params.id },
+     {
+          "aboutMe": req.params.aboutMe.split(","),
+          "interestedIn": req.params.interestedIn.split(","),
+          "myLocation": req.params.myLocation,
+          "myGender":req.params.myGender,
+          "myAge":req.params.myAge
+           }
+      
+   ).then(console.log("done"))
   }
 };

@@ -14,7 +14,7 @@ router
   .delete(userController.remove);
 
 router
-.route("/:id/:startAge/:EndAge/:Gender/:Area")
+.route("/:id/:Gender/:startAge/:EndAge/:Area")
 .get(userController.findchoices);
 
 router
@@ -24,6 +24,11 @@ router
 router
 .route("/remove/:id/:saveid")
 .get(userController.removeArrayItem);
+
+router
+.route("/saveProfile/:id/:aboutMe/:interestedIn/:myLocation/:myGender/:myAge")
+.get(userController.saveProfile);
+
 
 
 module.exports = router;

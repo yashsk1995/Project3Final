@@ -26,6 +26,9 @@ class Navbar extends Component {
           />
           <button className="btn  btn-primary navButtons">Logout</button>
         </a>
+        <a className="admin" href="/admin">
+          <button className="btn btn-primary navButtons">Admin</button>
+        </a>
       </ul>
     );
 
