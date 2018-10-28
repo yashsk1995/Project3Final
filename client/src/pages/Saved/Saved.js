@@ -55,7 +55,7 @@ class Saved extends Component {
   }
   sortByMatches = () =>{
     console.log(this.state.results);
-    let matchedUsers = this.state.results1 ;
+    let matchedUsers = this.state.results1;
     const { isAuthenticated, user } = this.props.auth;
 
 //initialize 

@@ -40,5 +40,17 @@ export default {
 
   allUsers: function () {
     return axios.get("/api3/users");
+  },
+  saveProfile:function(id,aboutMe,interestedIn,myLocation,myGender,myAge){
+    // return axios.post('/api2/users/saveProfile/', {
+    //   id: id,
+    //   aboutMe: aboutMe,
+    //   interestedIn: interestedIn,
+    //   myLocation: myLocation,
+    //   myGender: myGender,
+    //   myAge: myAge,
+    // });
+    return axios.get("/api2/users/saveProfile/"+id+"/"+aboutMe+"/"+interestedIn+"/"+myLocation+"/"+myGender+"/"+myAge)
   }
+
 };
