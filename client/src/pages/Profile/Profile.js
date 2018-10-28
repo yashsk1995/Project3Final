@@ -114,100 +114,14 @@ class Profile extends Component {
   //Function that changes the initial state as user starts typing on the input boxes
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-
+    console.log("done");
   };
-
-  onCheck = e => {
-    this.setState({ [e.target.name]: e.target.value });
-  };
-  componentDidMount() {
-    const { isAuthenticated, user } = this.props.auth;
-
-    this.loadUsers(user.id);
-    
-  }
-  renderDrink(item,name,value,text) {
-    const { isAuthenticated, user } = this.props.auth;
-
-    if(user.aboutMe.includes(item)) {
-      console.log("ddddddddd");
-      return (
-        <div className="col-sm-4">
-        <div className="form-check">
-          <input
-            type="checkbox"
-            name={name}
-            value={value}
-            onChange={this.onCheck}
-            checked
-          />
-          &nbsp;
-          <label className="form-check-label">{text}</label>
-        </div>
-      </div>
-      );
-    } else {
-      console.log("mmmmmmmmmmm  ");
-      return (
-        <div className="col-sm-4">
-        <div className="form-check">
-          <input
-            type="checkbox"
-            name={name}
-            value={value}
-            onChange={this.onCheck}
-          />
-          &nbsp;
-          <label className="form-check-label">{text}</label>
-        </div>
-      </div>
-      );
-    }
-  }
-
-  renderintrest(item,name,value,text) {
-    const { isAuthenticated, user } = this.props.auth;
-
-    if(user.interestedIn.includes(item)) {
-      console.log("ddddddddd");
-      return (
-        <div className="col-sm-4">
-        <div className="form-check">
-          <input
-            type="checkbox"
-            name={name}
-            value={value}
-            onChange={this.onCheck}
-            checked
-          />
-          &nbsp;
-          <label className="form-check-label">{text}</label>
-        </div>
-      </div>
-      );
-    } else {
-      console.log("mmmmmmmmmmm  ");
-      return (
-        <div className="col-sm-4">
-        <div className="form-check">
-          <input
-            type="checkbox"
-            name={name}
-            value={value}
-            onChange={this.onCheck}
-          />
-          &nbsp;
-          <label className="form-check-label">{text}</label>
-        </div>
-      </div>
-      );
-    }
-  }
 
 
   loadUsers = (id) => {
     API.getInfoById(id)
       .then(res => { this.setState({ user: res.data }); console.log(this.state.user); })
+  }
   onCheck = e => {
     console.log(e.target.checked)
     if (e.target.checked) {
@@ -765,16 +679,18 @@ console.log(this.state.user);
       
     );
   }
-}
 
+}
 
 const mapStateToProps = state => ({
   auth: state.auth
 });
 
-
-
 export default connect(
   mapStateToProps,
   { logoutUser }
 )(Profile);
+
+const container = document.createElement('div');
+document.body.appendChild(container);
+// export default Matches;
