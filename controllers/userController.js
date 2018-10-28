@@ -91,3 +91,14 @@ module.exports = {
    ).then(console.log("done"))
   }
 };
+
+
+
+// { _id: req.data.id },
+// {
+//      "aboutMe": req.data.aboutMe,
+//      "interestedIn": req.data.interestedIn,
+//      "myLocation": req.data.myLocation,
+//      "myGender":req.data.myGender,
+//      "myAge":req.data.myAge
+//       }
