@@ -16,11 +16,11 @@ const Modal = props => {
             <Col size="md-5"></Col>
 </Row>
 <Row>
-  <Col size="md-3"></Col>
+  <Col size="md-4"></Col>
              <Col size="md-3">
               <h2><b>{props.name}</b>,&nbsp;{props.Gender}&nbsp;,&nbsp;{props.Age}&nbsp;Yrs</h2>
             </Col>
-            <Col size="md-6"></Col>
+            <Col size="md-5"></Col>
       
         </Row>
 
@@ -54,7 +54,7 @@ const Modal = props => {
            {props.interestIn.map((interest) =>{
              return (
                <div className="intrested">
-                <h7><img className="eimg" src="https://png.icons8.com/material/80/000000/checkmark.png"/>&nbsp;&nbsp;&nbsp;{interest}</h7>
+                <h7><img className="eimg" src="https://png.icons8.com/material/80/000000/checkmark.png"/>&nbsp;&nbsp;{interest}</h7>
                </div>
              ) 
            })}
