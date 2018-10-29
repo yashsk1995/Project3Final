@@ -1,4 +1,4 @@
-.mainname{
+/* /* .mainname{
   width: 100%;
 }
 .containername {
@@ -19,12 +19,12 @@
 /* .hiddenname{
   display: none;
 } */
-  
+/*   
   .image1name {
     position: relative;
     display: block;
     float: left;
-    width: 20%;
+    width: 50%;
     margin: 0px;
     padding: 0;
     height: 20%;
@@ -56,7 +56,7 @@
     -webkit-transform: scale(1);
     -ms-transform: scale(1);
     transform: scale(1);
-  }
+  } */
   
   /* .text1name {
     color: white;
@@ -83,7 +83,7 @@
     right: 0px;
     left: 27px;
 } */
-.btn11name {
+/* .btn11name {
     background-color: white;
     border: 2px solid white;
     color:rgb(68, 57, 57);
@@ -96,7 +96,7 @@
     margin-right: 20%;
     margin-left: 20%;
     border-radius: 5px;
-}
+} */
 /* .btn21name {
     background-color: white;
     border: 2px solid white;
@@ -116,9 +116,9 @@
 /* .btn1name :hover{
   color:black;
 } */
-.btn11name :hover{
-  color:black;
-}
-/* .btn21name :hover{
+/* .btn11name :hover{
   color:black;
 } */
+/* .btn21name :hover{
+  color:black;
+} * */

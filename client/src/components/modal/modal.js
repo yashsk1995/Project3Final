@@ -11,76 +11,105 @@ const Modal = props => {
     <section className='modal-main'>
       <Container fluid>
         <Row>
-         
+           <Col size="md-4"></Col>
+            <Col size="md-3"><img className="imgnew" src={props.avatarUrl} alt="imge" /></Col>
             <Col size="md-5"></Col>
-
-            <Col size="md-3">
-              <img className="imgnew" src={props.avatarUrl} alt="imge" />
-              <h3 className="h121">{props.name},&nbsp;{props.Gender}&nbsp;</h3>
-              <h3 className="h121">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.Age}&nbsp;yrs</h3>
+</Row>
+<Row>
+  <Col size="md-4"></Col>
+             <Col size="md-3">
+              <h2><b>{props.name}</b>,&nbsp;{props.Gender}&nbsp;,&nbsp;{props.Age}&nbsp;Yrs</h2>
             </Col>
-            <Col size="md-4"></Col>
+            <Col size="md-5"></Col>
       
         </Row>
 
+        <Row>
+          <Col size="md-4"></Col>
+
+          <Col size="md-4">
+
+            <h2><b>About me</b></h2>
+            
+
+          </Col>
+          <Col size="md-4"></Col>
+        </Row>
         <Row>
           <Col size="md-3"></Col>
 
           <Col size="md-5">
 
-            <h3 className="h3"><h2>&nbsp;&nbsp;About me</h2>{props.About_me}</h3>
+            <h4 className="h555555">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.About_me}</h4>
+            
 
           </Col>
           <Col size="md-4"></Col>
         </Row>
         <Row>
-          <Col size="md-2"></Col>
+          <Col size="md-4"></Col>
 
           <Col size="md-8">
-           <h4 className="li">
+           <h4>
            {props.interestIn.map((interest) =>{
              return (
-               <div>
-                <img className="eimg" src="https://png.icons8.com/material/80/000000/checkmark.png"/><span>{interest}</span>
+               <div className="intrested">
+                <h7><img className="eimg" src="https://png.icons8.com/material/80/000000/checkmark.png"/>&nbsp;&nbsp;{interest}</h7>
                </div>
              ) 
            })}
            </h4>
           </Col>
-          <Col size="md-2"></Col>
         </Row>
 
         <Row>
           <Col size="md-4"></Col>
           <Col size="md-3">
-          <h4><img className="eimg" src="https://png.icons8.com/color/40/000000/marker.png" alt="location" />{props.location}</h4>
+          <h4 className="h555555"><img className="eimg1" src="https://png.icons8.com/color/40/000000/marker.png" alt="location" /></h4>
           </Col>
           <Col size="md-5">
           </Col>
         </Row>
+          
 
-        <Row>
+            <Row>
           <Col size="md-4"></Col>
           <Col size="md-3">
-           <img className="eimg" src="https://png.icons8.com/ios/48/000000/contacts-filled.png" alt="contact"/>{props.contact_number}
+          <h4 className="h555555">{props.location}</h4>
           </Col>
           <Col size="md-5">
           </Col>
         </Row>
+       
 
        
           <Row>
-          <Col size="md-4"></Col>
-          <Col size="md-4">
-          <img className="eimg" src="https://png.icons8.com/dusk/80/000000/gmail.png" alt="gmail"/>&nbsp;{props.email}
+          <Col size="md-5"></Col>
+          <Col size="md-3">
+          <img className="eimg2" src="https://png.icons8.com/dusk/80/000000/gmail.png" alt="gmail"/>
           </Col>
           <Col size="md-4">
           </Col>
         </Row>
-        
+        <Row>
+          <Col size="md-3"></Col>
 
-      </Container>
-      <button onClick={props.handleClose}  >  Close </button>
+          <Col size="md-5">
+
+            <h4 className="h555555">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.email}</h4>
+            
+
+          </Col>
+          <Col size="md-4"></Col>
+        </Row>
+       <br></br>
+      <Row>
+      <Col size="md-5"></Col>
+        <Col size="md-2">
+      <button  className="btn btn-primary btnnnnnn" onClick={props.handleClose}  >Close</button>
+      </Col>
+      <Col size="md-5"></Col>
+      </Row>
       {/* //   <section className='modal-main'>
       //   <p>{props.userid}</p>
       //   <p>Name: {props.name}</p>
@@ -94,6 +123,8 @@ const Modal = props => {
       {/* //       Close */}
       {/* //     </button> */}
       {/* //   </section> */}
+
+      </Container>
       </section>
     </div>
     

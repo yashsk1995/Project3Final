@@ -16,10 +16,8 @@ display: none;
 
 .image1name {
   display: block;
-  width: 100%;
-  margin: 0px;
-  padding: 0;
-  height: 100px;
+  height: 120px;
+  border-radius: 55%;
 
 }
 
@@ -113,4 +111,7 @@ color:black;
 }
 .charting{
 height:50px;
+}
+.font{
+   text-align: center;
 }
