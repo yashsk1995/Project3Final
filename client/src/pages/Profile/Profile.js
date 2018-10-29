@@ -6,7 +6,7 @@ import classnames from "classnames";
 import API from "../../utils/API";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
-
+import Cm from "../../components/common modal/cm"
 
 class Profile extends Component {
   constructor() {
@@ -54,8 +54,19 @@ class Profile extends Component {
       aboutMe2:[],
       myAge2:[],
       myLocation2:[],
-      myGender2:[]
+      myGender2:[],
+      show: false,
+     showMe:true
+      
     };
+  }
+  showModal = () => {
+    this.setState({ show: true });
+   
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
   }
 
 
@@ -86,19 +97,10 @@ class Profile extends Component {
         interestedIn1.push(this.state.partnerloveParties);
         interestedIn1.push(this.state.partnersmokes);
         interestedIn1.push(this.state.partnerdoesNotBorrow);
-      console.log("LOOKINGFORGENDER",this.state.partnerisComputerNerd);
-      console.log("lookingforage1", this.state.partnerdrinks);
-
-      console.log("lookingforage1", this.state.partnerdoesNotSnore);
      const myAge1= this.state.myage;
      const myGender1= this.state.mygender;
      const myLocation1 =this.state.mylocation;
-     console.log(aboutMe1);
-     console.log("INTEREST!", interestedIn1);
-     console.log(myAge1);
-     console.log(myGender1);
-     console.log(myLocation1);
-    API.saveProfile(user.id,aboutMe1,interestedIn1,myLocation1,myGender1,myAge1)
+     API.saveProfile(user.id,aboutMe1,interestedIn1,myLocation1,myGender1,myAge1)
     .then(res => { this.setState({ user: res.data }); console.log(this.state.user); })
 
     .catch(err => console.log(err));
@@ -114,7 +116,7 @@ class Profile extends Component {
   //Function that changes the initial state as user starts typing on the input boxes
   onChange = e => {
     this.setState({ [e.target.name]: e.target.value });
-    console.log("done");
+    
   };
 
 
@@ -126,19 +128,17 @@ class Profile extends Component {
     console.log(e.target.checked)
     if (e.target.checked) {
       this.setState({ [e.target.name]: e.target.value });
+      console.log("cchecked");
     } else  {
       this.setState({ [e.target.name]: "" });
-      
+      console.log("unnnnncchecked");
     } 
   };
 
 
   componentDidMount() {
     const { isAuthenticated, user } = this.props.auth;
-console.log(this.state.user);
     this.loadUsers(user.id);
-    this.updateProfile();
-
 
 
     
@@ -152,7 +152,6 @@ console.log(this.state.user);
       })
     }
     if(array2.includes(item)) {
-      console.log(value);
       return (
         <div className="col-sm-4">
         <div className="form-check">
@@ -171,7 +170,6 @@ console.log(this.state.user);
       </div>
       );
     } else {
-      console.log("mmmmmmmmmmm  ");
       return (
         <div className="col-sm-4">
         <div className="form-check">
@@ -193,7 +191,6 @@ console.log(this.state.user);
   renderintrest(item,name,value,text) {
     const { isAuthenticated, user } = this.props.auth;
       let array= [];
-      console.log(typeof(this.state.user.interestedIn))
     //   array=  this.state.user.map(a => {
     //    a.interestedIn.map(b => {
     //      if(b){
@@ -211,7 +208,6 @@ console.log(this.state.user);
     }
 
     if(array.includes(item)) {
-      console.log(value);
       return (
         <div className="col-sm-4">
         <div className="form-check">
@@ -228,7 +224,6 @@ console.log(this.state.user);
       </div>
       );
     } else {
-      console.log("mmmmmmmmmmm ");
       return (
         <div className="col-sm-4">
         <div className="form-check">
@@ -289,52 +284,6 @@ console.log(this.state.user);
   };
 
   //On submit function
-  onSubmit = e => {
-    e.preventDefault();
-    console.log(this.state); // This is a test remove this later
-    const newUser = {
-      name: this.state.name,
-      email: this.state.email,
-      password: this.state.password,
-      password2: this.state.password2,
-      myAge: this.state.myage,
-      myGender: this.state.mygender,
-      myLocation: this.state.mylocation,
-
-      avatar:
-        "https://banner2.kisspng.com/20180410/bbw/kisspng-avatar-user-medicine-surgery-patient-avatar-5acc9f7a7cb983.0104600115233596105109.jpg",
-      aboutMe: [
-        this.state.iamsportLover,
-        this.state.iampetLover,
-        this.state.iamsnorer,
-        this.state.iamcleanFreak,
-        this.state.iamcomputerNeard,
-        this.state.iamheavyDrinker,
-        this.state.iampartyLover,
-        this.state.iamsmoker,
-        this.state.iamborrower
-      ],
-      interestedIn: [
-        this.state.lookingForgender,
-        this.state.lookingForage1,
-        this.state.lookingForage2,
-        this.state.lookingForlocation,
-        this.state.partnerloveSports,
-        this.state.partnerlovePets,
-        this.state.partnerdoesNotSnore,
-        this.state.partnercleans,
-        this.state.partnerisComputerNerd,
-        this.state.partnerdrinks,
-        this.state.partnerloveParties,
-        this.state.partnersmokes,
-        this.state.partnerdoesNotBorrow
-      ],
-      saved: this.state.saved
-    };
-
-    console.log(newUser);
-    this.props.registeruser(newUser, this.props.history);
-  };
   render() {
     //Getting the errrors varibale form the state - dstructuring
     const { errors } = this.state;
@@ -663,12 +612,15 @@ console.log(this.state.user);
                   {/* <!--Proceed btn ####################################################################################--> */}
 
                   <div className="proceed-btn col-sm-12 text-center">
-                    <p className="btn btn-primary " onClick={this.updateProfile}>
+                    <p className="btn btn-primary " onClick={()=>{ this.updateProfile(); this.showModal() }}>
                       Update
                     </p>
                   </div>
                 </div>
-
+                  <Cm show={this.state.show} handleClose={this.hideModal}
+                  msgs="your profile updated successfully"
+                // interestIn={this.state.Info.interestIn}
+                />
                 {/* <!-- upload image ####################################################################################--> */}
                   </div>
               </form>
