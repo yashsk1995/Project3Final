@@ -33,8 +33,8 @@ class Saved extends Component {
     const { isAuthenticated, user } = this.props.auth;
     this.getAlluser();
     console.log(user.id);
-    this.getCurrentUser(user.id);
-    this.find(user.id,user.interestedIn[0],user.interestedIn[1],user.interestedIn[2],user.interestedIn[3]);
+    // this.getCurrentUser(user.id);
+    // this.find(user.id,user.interestedIn[0],user.interestedIn[1],user.interestedIn[2],user.interestedIn[3]);
 
   }
   find = (id,startAge, EndAge, Gender, Area) => {
@@ -43,25 +43,20 @@ class Saved extends Component {
       .then(res => {
         
         this.setState({ results: res.data })
-            console.log(this.state.results);
         this.sortByMatches();
         this.sortMyData();
         this.setState({finalResults:this.state.results})
         // console.log(parseInt(this.state.results[3].percentage));
-          console.log(this.state.results);
-        console.log(this.state.newResults);
           // console.log({user.name})
       });
   }
   sortByMatches = () =>{
-    console.log(this.state.results);
     let matchedUsers = this.state.results1;
     const { isAuthenticated, user } = this.props.auth;
 
 //initialize 
 // let myLikes = currentUser.interestIn;
 let interestIn = user.interestedIn.slice(4);
-console.log(interestIn);
 let myLikes = interestIn;
 let theirLikes = [];
 
@@ -78,7 +73,6 @@ matchedUsers.map((userObject) => {
     //userObject.matchCount = matchedInterestCount;
     //this is actually better:
         this.setState({newResults:userObject});
-console.log(this.state.newResults)
 
  userObject.percentage = parseInt(matchedInterestCount / myLikes.length * 100);
     return null;
@@ -95,7 +89,6 @@ sortMyData = () => {
 showModal = id => {
   API.getInfoById(id)
     .then(res => { console.log(res); this.setState({ Info: res.data }) });
-  console.log("INFO" + this.state.Info);
   this.setState({ show: true });
   this.setState({ currentUserId: id });
   // console.log("hi");
@@ -132,10 +125,12 @@ handleInputChange = event => {
 };
 
 getAlluser = () => {
+  const { isAuthenticated, user } = this.props.auth;
+
   API.getUsers()
     .then(res => {
       this.setState({ results1: res.data })
-      console.log(this.state.results);
+      this.getCurrentUser(user.id);
     })
 
 
@@ -146,23 +141,12 @@ getCurrentUser = id => {
   API.getInfoById(id)
     .then(res => {
       this.setState({ userMain: res.data })
-      console.log(this.state.userMain.saved);
-      this.finalResultsDone();
-    });
-
-
-  // console.log("hi");
-
-};
-finalResultsDone = () => {
-  let useridList= this.state.userMain.saved;
+      let useridList= this.state.userMain.saved;
   let final = [];
   this.state.results1.forEach(results1 =>useridList.forEach(useridList => {
     // console.log(useridList);
     if (results1._id == useridList) {
-      console.log("hi");
       final.push(results1);
-      console.log(final);
         // console.log(results);
     }
     else {
@@ -171,6 +155,16 @@ finalResultsDone = () => {
   this.setState({finalResults1:final});
   }
   ))
+  
+      this.finalResultsDone();
+    });
+
+
+  // console.log("hi");
+
+};
+finalResultsDone = () => {
+  console.log(this.state.finalResults1)
 };
 
 render() {

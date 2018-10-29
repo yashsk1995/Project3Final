@@ -15,7 +15,7 @@ const Cm = props => {
             <Col size="md-5"></Col>
 
             <Col size="md-3">
-                    <h1>props.msgs</h1>
+                    <h1>{props.msgs}</h1>
             </Col>
             <Col size="md-4"></Col>
       

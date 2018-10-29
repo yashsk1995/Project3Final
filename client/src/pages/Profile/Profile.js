@@ -98,6 +98,8 @@ class Profile extends Component {
         interestedIn1.push(this.state.partnersmokes);
         interestedIn1.push(this.state.partnerdoesNotBorrow);
      const myAge1= this.state.myage;
+     console.log(interestedIn1)
+     console.log(aboutMe1)
      const myGender1= this.state.mygender;
      const myLocation1 =this.state.mylocation;
      API.saveProfile(user.id,aboutMe1,interestedIn1,myLocation1,myGender1,myAge1)
@@ -316,7 +318,7 @@ class Profile extends Component {
                       name="mygender"
                       onChange={this.onChange}
                       // value={this.state.user.myGender}
-                      defaultValue={this.state.user.myGender}
+                      defaultValue="Male"
                      
 
                     >

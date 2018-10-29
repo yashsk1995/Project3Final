@@ -5,7 +5,8 @@ import API from "../../utils/API";
 // import "./matches.css";
 import Button from "../../components/Button";
 import Name from "../../components/cards/profile";
-import Modal from "../../components/modal/modal"
+import Modal from "../../components/modal/modal";
+import Cm from "../../components/common modal/cm";
 
 // import Checkbox from "../../components/Checkbox";
 import propTypes from "prop-types";
@@ -24,11 +25,20 @@ class Matches extends Component {
     area:"",
     usernames: [],
     show: false,
+    show2:false,
     Info: {},
     currentUserId: null,
      showMe:true,
   };
 
+  showModal2 = () => {
+    this.setState({ show2: true });
+   
+  };
+
+  hideModal2 = () => {
+    this.setState({ show2: false });
+  }
   componentDidMount() 
   //  {/* <button onClick={() => this.find(20, 30,"male", "Atlanta")} >Find</button> */}
   {
@@ -274,14 +284,17 @@ return (
                         percentage={user1.percentage}
                         key={user1._id}
 
-                        saveid={() => this.saveUser(user.id, user1._id)}
+                        saveid={() =>{ this.saveUser(user.id, user1._id);  this.showModal2()}}
                         hiddenid={() => this.hiddenid(user1._id)}
                         show={() => this.showModal(user1._id)}
 
                       />
                       : null
                   }
-
+                         <Cm show={this.state.show2} handleClose={this.hideModal2}
+                  msgs="saved successfully"
+                // interestIn={this.state.Info.interestIn}
+                />
                   <Modal show={this.state.show} handleClose={this.hideModal}
                     avatarUrl={this.state.Info.avatar}
                     name={this.state.Info.name}
