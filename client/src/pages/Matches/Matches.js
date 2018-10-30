@@ -258,15 +258,19 @@ render(){
   const { isAuthenticated, user } = this.props.auth;
 
 return (
-
+    
   <div>
+    <br></br>
+    <br></br>
     {this.state.finalResults.length ? (
             <Container fluid>
+            
                               <Row>
                 <Col size="md-0">
                 </Col>
             {this.state.finalResults.map(user1 => (
               <Col size="md-4">
+            <br></br>
                   {
 
                     this.state.showMe ?
@@ -300,7 +304,7 @@ return (
                     name={this.state.Info.name}
                     Gender={this.state.Info.myGender}
                     Age={this.state.Info.myAge}
-                    About_me={this.state.Info.aboutMe}
+                    About_me={this.state.Info.aboutMe == undefined ? [] : this.state.Info.aboutMe}
                     interestIn={this.state.Info.interestedIn == undefined ? [] : this.state.Info.interestedIn}
                     location={this.state.Info.myLocation}
                     contact_number={this.state.Info._id}

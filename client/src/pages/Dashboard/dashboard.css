@@ -74,7 +74,7 @@
 .dash-box-body > .dash-box-count {
     display: block;
     font-size: 30px;
-    color: #FFF;
+    color:white;
     font-weight: 300;
 }
 .dash-box-body > .dash-box-title {
@@ -100,20 +100,20 @@
 }
 
 .dash-box.dash-box-color-3 {
-    background: rgb(183,71,247);
-    background: -moz-linear-gradient(top, rgba(183,71,247,1) 0%, rgba(108,83,220,1) 100%);
-    background: -webkit-linear-gradient(top, rgba(183,71,247,1) 0%,rgba(108,83,220,1) 100%);
-    background: linear-gradient(to bottom, rgba(183,71,247,1) 0%,rgba(108,83,220,1) 100%);
+    background: rgb(138, 133, 204);
+    background: -moz-linear-gradient(top,rgb(146, 143, 190) 1%, rgb(146, 143, 190) 99%);
+    background: -webkit-linear-gradient(top, rgb(146, 143, 190) 1%,rgb(146, 143, 190) 99%);
+    background: linear-gradient(to bottom, rgb(139, 133, 221) 1%,rgb(141, 136, 206) 99%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b747f7', endColorstr='#6c53dc',GradientType=0 );
 }
 .dash-box-color-3 .dash-box-icon:after {
-    background: rgba(180, 70, 245, 0.76);
+    background: rgb(150, 149, 179);
 }
 .dash-box-color-3 .dash-box-icon:before {
-    background: rgba(226, 132, 255, 0.66);
+    background: rgb(178, 176, 216);
 }
 .dash-box-color-3 .dash-box-icon > i {
-    background: #8150e4;
+    background: rgb(70, 67, 110);
 }
 
 

@@ -18,20 +18,17 @@ class Dashboard extends Component {
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h5>User ID : {user.id}</h5>
-              <h5>Name : {user.name}</h5>
-              <h5>{user.aboutMe}</h5>
-              <h5>{user.interestedIn}</h5>
+              <h3>We welcome you <b><u>{user.name}</u></b> to our group and looking forward to find perfect roommates !! </h3>
             </Jumbotron>
           </Col>
         </Row>
         <Row>
           <Col size="md-4">
             <Box
-              color="dash-box dash-box-color-2"
+              color="dash-box dash-box-color-3"
               gyp="glyphicon glyphicon-screenshot"
               title="Best Matches"
-              text="To see best matches as per your profile"
+              // text="To see best matches as per your profile"
               src="./images/match2.png"
               alt="Best Matches"
               linkto="/matches"
@@ -40,10 +37,10 @@ class Dashboard extends Component {
           </Col>
           <Col size="md-4">
             <Box
-              color="dash-box dash-box-color-2"
+              color="dash-box dash-box-color-3"
               gyp="glyphicon glyphicon-floppy-saved"
               title="Saved Friend List"
-              text="Get your all saved friends"
+              // text="Get your all saved friends"
               src="./images/save2.png"
               alt="save"
               linkto="/saved"
@@ -52,10 +49,10 @@ class Dashboard extends Component {
           </Col>
           <Col size="md-4">
             <Box
-              color="dash-box dash-box-color-2"
+              color="dash-box dash-box-color-3"
               gyp="glyphicon glyphicon-user"
               title="Profile"
-              text="Edit your profile here"
+              // text="Edit your profile here"
               src="./images/editProfile.png"
               alt="profile"
               linkto="/profile"

@@ -1,14 +1,17 @@
 .containername {
-  padding: 10px;
-  height:95%;
+  padding: 30px;
+  height:90%;
   /* width: 88%; */
-  background-color: white;
+  background-color: #B6B3DE;
   color: black;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   border: 1px solid lightgray;
   /* box-shadow: gray 2px 5px 20px 5px; */
-  /* border-radius: 20px; */
+  box-shadow: 0 8px 6px -6px gray;
+
+  border-radius: 8px;
   top:10px;
+
 }
 .hiddenname{
 display: none;
@@ -16,8 +19,8 @@ display: none;
 
 .image1name {
   display: block;
-  height: 120px;
-  border-radius: 55%;
+  height: 140px;
+  border-radius: 100%;
 
 }
 
@@ -25,14 +28,15 @@ display: none;
   position: absolute;
   border-radius: 10px;
   bottom: 0;
-  left: 0;
+  left: 19px;
   right: 0;
-  background-color: rgb(87, 92, 87);
-  opacity: 0.78;
+  top:27px;
+  background-color: rgba(77, 77, 97, 0.678);
+  opacity: 0.85;
   filter: alpha(opacity=50);
   overflow: hidden;
-  /* width: 90%; */
-  height: 100%;
+  width: 90%;
+  height: 90%;
   -webkit-transform: scale(0);
   -ms-transform: scale(0);
   transform: scale(0);
@@ -57,48 +61,48 @@ display: none;
   text-align: center;
 }
 .btn1name {
-   background-color: white;
+   background-color: #6682EB;
   border: 2px solid white;
-  color:rgb(68, 57, 57);
+  color:white;
   font-size: 15px;
   cursor: pointer;
   width: 70%;
   height: 50px;
-  position: fixed;
+  /* position: fixed;
   top:10px;
   bottom: 0px;
   right: 0px;
-  left: 27px;
+  left: 27px; */
 }
 .btn11name {
-  background-color: white;
+  background-color: #6682EB;
   border: 2px solid white;
-  color:rgb(68, 57, 57);
+  color:white;
   font-size: 15px;
   cursor: pointer;
   width: 70%;
   height: 50px;
-  position: fixed;
+  /* position: fixed;
   top:90px;
   bottom: 0px;
   right: 0px;
-  left: 27px;
+  left: 27px; */
 }
 .btn21name {
-  background-color: white;
+  background-color: #6682EB;
   border: 2px solid white;
-  color:rgb(68, 57, 57);
+  color:white;
   font-size: 15px;
   font-weight: bold;
   font-weight: 500;
   cursor: pointer;
   width: 70%;
   height: 50px;
-  position: fixed;
+  /* position: fixed;
   top:170px;
   bottom: 0px;
   right: 0px;
-  left: 27px;
+  left: 27px; */
 }
 .btn1name :hover{
 color:black;
