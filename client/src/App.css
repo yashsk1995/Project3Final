@@ -72,7 +72,7 @@ img {
 
 /* Landing page image styling ####################################*/
 .landing {
-  /* position: relative; */
+  /* * position: relative; */ 
   background: url("./img/showcase.jpg") no-repeat;
   /* background-size: cover; */
   background-position: center;

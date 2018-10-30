@@ -153,7 +153,7 @@ const Modal = props => {
             <Col size="md-3">
               <br />
               <br />
-              <h4><img className="eimg1" src="https://png.icons8.com/color/40/000000/marker.png" alt="location" />            {props.location}</h4>
+              <h3><img className="eimg1" src="https://png.icons8.com/color/40/000000/marker.png" alt="location" />            {props.location}</h3>
             </Col>
             <Col size="md-4">
             </Col>
@@ -167,7 +167,7 @@ const Modal = props => {
           <Row>
             <Col size="md-5"></Col>
             <Col size="md-3">
-              <h4> <img className="eimg2" src="https://png.icons8.com/dusk/80/000000/gmail.png" alt="gmail" />{props.email}</h4>
+              <h3> <img className="eimg2" src="https://png.icons8.com/dusk/80/000000/gmail.png" alt="gmail" />{props.email}</h3>
             </Col>
             <Col size="md-4">
             </Col>
