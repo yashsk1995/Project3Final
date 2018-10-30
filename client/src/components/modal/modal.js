@@ -115,7 +115,7 @@ const Modal = props => {
                   })}
                   <Col size="md-12">
 
-                    <h3 className="dadsqrtf">I am looking forward to find someone who is between {age[0]} to {age[1]} years old and {text1.shift()}, who resides in {text1.shift()} and who </h3>
+                    <h3 className="dadsqrtf">I am looking forward to find someone who is between {age[0]} to {age[1]} years old and {text1.shift()}, who resides in {text1.shift()} and who's </h3>
 
                     <br />
                     <br />
@@ -127,9 +127,9 @@ const Modal = props => {
                   <Col size="md-12">
                   {text1.map((interest) => {
                     return (
-                      <Col size="md-3">
+                      <Col size="md-6">
                       <br />
-                        <h7><img className="eimg434" src="" />&nbsp;&nbsp;{interest}</h7>
+                      <h3><img className="eimg434" src="https://png.icons8.com/material-rounded/50/000000/enter-2.png" />{interest}</h3>
                       </Col>
                     )
                   })

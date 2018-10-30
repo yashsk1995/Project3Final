@@ -620,7 +620,8 @@ class Profile extends Component {
                   </div>
                 </div>
                   <Cm show={this.state.show} handleClose={this.hideModal}
-                  msgs="your profile updated successfully"
+                  msgs="Your profile updated successfully"
+                  red="/login"
                 // interestIn={this.state.Info.interestIn}
                 />
                 {/* <!-- upload image ####################################################################################--> */}

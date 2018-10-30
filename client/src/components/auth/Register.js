@@ -8,6 +8,7 @@ import classnames from "classnames";
 import { connect } from "react-redux";
 import { registeruser } from "../../actions/authActions";
 
+
 class Register extends Component {
   constructor() {
     super();

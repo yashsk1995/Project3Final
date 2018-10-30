@@ -31,7 +31,7 @@ class Dashboard extends Component {
         <Row>
           <Col size="md-4">
             <Box
-              color="dash-box dash-box-color-3"
+              color="dash-box dash-box-color-2"
               gyp="glyphicon glyphicon-screenshot"
               title="Best Matches"
               // text="To see best matches as per your profile"
@@ -43,7 +43,7 @@ class Dashboard extends Component {
           </Col>
           <Col size="md-4">
             <Box
-              color="dash-box dash-box-color-3"
+              color="dash-box dash-box-color-2"
               gyp="glyphicon glyphicon-floppy-saved"
               title="Saved Friend List"
               // text="Get your all saved friends"
@@ -55,7 +55,7 @@ class Dashboard extends Component {
           </Col>
           <Col size="md-4">
             <Box
-              color="dash-box dash-box-color-3"
+              color="dash-box dash-box-color-2"
               gyp="glyphicon glyphicon-user"
               title="Profile"
               // text="Edit your profile here"

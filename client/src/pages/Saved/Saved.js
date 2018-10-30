@@ -106,12 +106,12 @@ hideModal = () => {
 }
 
 hiddenid = (id) => {
-  let newResults = this.state.finalResults.filter((user) => {
+  let newResults = this.state.finalResults1.filter((user) => {
     return (user._id !== id);
   });
 
   this.setState({
-    finalResults: newResults
+    finalResults1: newResults
   })
 }
 // componentDidMount() {
