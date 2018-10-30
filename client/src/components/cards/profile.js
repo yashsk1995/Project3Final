@@ -15,29 +15,65 @@ const Usernames = props => (
                   <Col size="md-2"></Col>    
                   <Col size="md-8">
                 <img src={props.img} alt="Avatar" className="image1name" />  
-                </Col>
-                
-                <Col size="md-2"></Col> 
-                </Row><br></br>
-                <Row>  
-                <Col size="md-1"></Col> 
-                    <Col size="md-10">   
-                <p className="font"><b>{props.usernames}</b>,{props.Gender} , {props.age} , {props.City} </p>
+               <br />
+                </Col>  
+                <Col size="md-2">
                 </Col> 
-                <Col size="md-1"></Col> 
+                </Row>
+                <Row>  
+                <Col size="md-2"></Col> 
+
+                <Col size="md-8">   
+                <h3 className="font"><b>{props.usernames}</b></h3>
+                <h5 className="font">{props.Gender} , {props.age} , {props.City} </h5>
+                </Col> 
+                <Col size="md-2"></Col> 
                 </Row>
                 <Row>
-                    <Col size="md-3"></Col>
-                    <Col size="md-5">
-                <h6>Match {props.percentage}%</h6>
+                    <Col size="md-2"></Col>
+                    <Col size="md-8">
+                    <br />
+                <h4 className="font">{props.percentage}% Match</h4>
                 </Col>
-                <Col size="md-4"></Col>
+                <Col size="md-2"></Col>
                 </Row>
                
                 <div className="overlay1name">
-                    <button className="btn1name" onClick={props.saveid}><i className="fa fa-save">&nbsp;Save</i></button>
-                    <button id={props.id} className="btn11name" onClick={props.hiddenid}><i className="fa fa-trash">&nbsp;Remove</i></button>
-                    <button className="btn21name" onClick={props.show}><i className="fa fa-ellipsis-h">&nbsp;View More</i></button>
+                <Container fluid>
+                  <Row>
+                  <Col size="md-3"></Col>    
+                  <Col size="md-7">
+                  <br></br>
+                  <br></br>
+                  
+                  <button className="btn1name" onClick={props.saveid}><i className="fa fa-save">&nbsp;Save</i></button>
+                </Col>
+                <Col size="md-2">
+                </Col> 
+                </Row>
+                <Row>
+                  <Col size="md-3"></Col>    
+                  <Col size="md-7">
+                  <br></br>
+                  <br></br>
+                  <button id={props.id} className="btn11name" onClick={props.hiddenid}><i className="fa fa-trash">&nbsp;Remove</i></button>
+                </Col>
+                <Col size="md-2">
+                </Col> 
+                </Row>
+                <Row>
+                  <Col size="md-3"></Col>    
+                  <Col size="md-7">
+                  <br></br>
+                  <br></br>
+                  <button className="btn21name" onClick={props.show}><i className="fa fa-ellipsis-h">&nbsp;View More</i></button>
+                </Col>
+                <Col size="md-2">
+                </Col> 
+                </Row>
+                
+                </Container>
+                    
                 </div>
                
                 </Container>
