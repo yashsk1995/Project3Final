@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container } from "../../components/Grid";
+import { Col, Row, Container } from "../../components/Grid";
 // import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 import { connect } from "react-redux";
@@ -7,6 +7,7 @@ import { connect } from "react-redux";
 import API from "../../utils/API";
 import Profiles from "../../components/cards";
 import PieChart from 'react-minimal-pie-chart';
+import "./admin.css";
 
 
 class Admin extends Component {
@@ -55,14 +56,20 @@ class Admin extends Component {
 
         return (
             <Container fluid>
+            <Row>
+                <Col size="md-3"></Col>
+                <Col size="md-4">  <div className="divvvvvvvvv">
+                <br></br>
                 {!this.state.showResults ?
+                    
                     <PieChart data={[
-                        { title: 'Male', value: this.state.genders.length / this.state.maleCount, color: '#41C8F9' },
-                        { title: 'Female', value: this.state.genders.length / this.state.femaleCount, color: "#B2D0DB" },
+                        { title: 'Male', value: this.state.genders.length / this.state.maleCount,color: "#C54C51" },
+                        { title: 'Female', value: this.state.genders.length / this.state.femaleCount, color: "#698D10" },
                     ]}
                     >
-                        <h1 style={{ textAlign: 'center', padding: '10px' }}>Male: {this.state.maleCount}, Female: {this.state.femaleCount}, Total: {this.state.users.length}</h1>
-                        <button style={{ marginRight: "40%", marginLeft: "40%", width: "10%" }} className="btn btn-primary btn-block mt-2" onClick={() => this.handleTransition()}>Proceed</button>
+                        <h1><img className="imgggggggg" src="https://png.icons8.com/office/40/000000/person-male.png"/> {this.state.maleCount}, 
+                        <img className="imgggggggg" src="https://png.icons8.com/office/40/000000/guest-female.png"/> {this.state.femaleCount}, <br></br><p className="ppppppppp">Total:</p> {this.state.users.length}</h1>
+                        <button style={{ marginRight: "40%",marginLeft: "30%", width: "30%", }} className="btn btn-primary btn-block mt-2" onClick={() => this.handleTransition()}>Proceed</button>
                     </PieChart> : null}
                 {this.state.showResults ?
                     this.state.users.map((users, i) => (
@@ -76,6 +83,10 @@ class Admin extends Component {
                             onClick={() => this.delete(users._id)}
                         />
                     )) : null}
+                </div></Col>
+                <Col size="md-5"></Col>
+          
+                </Row>
             </Container >
         )
     }
