@@ -2,9 +2,10 @@
     /* background: #222; */
     text-align: center;
     color:black;
-    background: #B6B3DE;
+    background: rgb(74, 185, 212);
     /* border: 2px solid white; */
     
 
+    box-shadow: 0 8px 6px -6px gray;
 
 }

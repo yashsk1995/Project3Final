@@ -3,7 +3,6 @@ import propTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
-
 class Login extends Component {
   //Empty constructor - the initial value assigned to each field
   constructor() {
@@ -50,24 +49,39 @@ class Login extends Component {
     // const { user } = this.props.auth;
 
     return (
-      <div>
+      <div className="qwqertyu">
+        <div className="boxqwrf">
         {/* {user.admin} */}
         <div className="container">
-          <div className="loginRow">
-            <div className="col-lg-4">
+        <div className="rwwrc">
+        <div className="col-md-3">
+          </div>
+          <div className="col-md-5">
+          {/* <h1 className="dqliuth">Log in</h1> */}
+          </div>
+          <div className="col-md-4">
+          </div>
+        
+        </div>
+        </div>
+        <div className="container ">
+          <div className="loginRow" >
+          <div className="col-md-3">
+          </div>
+            <div className="col-md-5 gthyurkfm">
               {/* <h1 className="display-6 text-center">Log In</h1> */}
-
+            
               <form onSubmit={this.onSubmit}>
-                <div className="form-group">
-                  <div className="input-group">
-                    <span className="input-group-addon">
-                      <i className="glyphicon glyphicon-user" />
+                <div className="form-group ">
+                  <div className="input-group ">
+                    <span className="input-group-addon yuiokjhbnm">
+                      <i className="glyphicon glyphicon-user gyuikjbnm" />
                     </span>
 
                     <input
                       type="text"
                       // className="form-control form-control-md"
-                      className={classnames("form-control form-control-md", {
+                      className={classnames("form-control form-control-md gthyurkfm yuiokjhbnm", {
                         "is-invalid": errors.email
                       })}
                       placeholder="Email Address"
@@ -82,13 +96,13 @@ class Login extends Component {
                 </div>
                 <div className="form-group">
                   <div className="input-group">
-                    <span className="input-group-addon">
-                      <i className="glyphicon glyphicon-lock" />
+                    <span className="input-group-addon yuiokjhbnm">
+                      <i className="glyphicon glyphicon-lock gyuikjbnm yuiokjhbnm" />
                     </span>
                     <input
                       type="password"
                       // className="form-control form-control-md"
-                      className={classnames("form-control form-control-md", {
+                      className={classnames("form-control form-control-md gthyurkfm yuiokjhbnm", {
                         "is-invalid": errors.password
                       })}
                       placeholder="Password"
@@ -103,12 +117,18 @@ class Login extends Component {
                 </div>
                 <input
                   type="submit"
-                  className="btn btn-primary btn-block mt-2"
+                  className="btn btn-primary btn-block mt-2 yuiokjhbnm"
                 />
               </form>
             </div>
+            <div className="col-md-4">
           </div>
+          </div>
+          <br />
+         
         </div>
+        </div>
+
       </div>
     );
   }

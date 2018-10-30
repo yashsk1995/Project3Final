@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import propTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import { Redirect } from "react-router";
 
 class Navbar extends Component {
   //On click log out function
@@ -24,10 +25,15 @@ class Navbar extends Component {
             alt={user.name}
             style={{ width: "45px", height: "45px", marginRight: "5px" }}
           />
+          <Link to="/login">
           <button className="btn  btn-primary navButtons">Logout</button>
+        </Link>
         </a>
         <a className="admin" href="/admin">
           <button className="btn btn-primary navButtons">Admin</button>
+        </a>
+        <a className="dashboard1232" href="/dashboard">
+        <button className="btn btn-primary navButtons">Dashboard</button>
         </a>
       </ul>
     );
@@ -40,13 +46,14 @@ class Navbar extends Component {
         <Link to="/login">
           <button className="btn  btn-primary navButtons">Login</button>
         </Link>
+        
       </ul>
     );
     return (
       <div className="nav">
-        <a className="navbar-brand" href="/">
-          ROOMMATES
-        </a>
+        <font className="fyudjfbc"><a className="navbar-brand" href="/">
+          Rommies
+        </a></font>
         <nav className="navbar ml-auto">
           <div className="navBtns">
             {/* Conditional statements to display nav items */}
