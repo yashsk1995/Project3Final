@@ -21,6 +21,7 @@ class Login extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
       this.props.history.push("/dashboard");
+      // this.props.history.push("/login");
     }
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
@@ -35,6 +36,7 @@ class Login extends Component {
   //On submit event
   onSubmit = e => {
     e.preventDefault();
+
     const userData = {
       email: this.state.email,
       password: this.state.password
@@ -45,9 +47,11 @@ class Login extends Component {
 
   render() {
     const { errors } = this.state;
+    // const { user } = this.props.auth;
 
     return (
       <div>
+        {/* {user.admin} */}
         <div className="container">
           <div className="loginRow">
             <div className="col-lg-4">

@@ -133,6 +133,7 @@ router.post("/login", (req, res) => {
             avatar: user.avatar,
             aboutMe: user.aboutMe,
             interestedIn: user.interestedIn
+            // admin: user.password
           };
           // 1. Sign a token ( not suere why secret or key is there, this is retrived from config/keys.js)
           //ExpiresIn willl kick out user - 3600 s will kick out in an hour

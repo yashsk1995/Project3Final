@@ -13,12 +13,18 @@ class Dashboard extends Component {
     const { user } = this.props.auth;
 
     return (
-      // <div>Name: {user.name}</div>
       <Container fluid>
+        {/* <div>Name: {user.name}</div> <div>Name: {user.password}</div> */}
         <Row>
           <Col size="md-12">
             <Jumbotron>
-              <h3>We welcome you <b><u>{user.name}</u></b> to our group and looking forward to find perfect roommates !! </h3>
+              <h3>
+                We welcome you{" "}
+                <b>
+                  <u>{user.name}</u>
+                </b>{" "}
+                to our group and looking forward to find perfect roommates !!{" "}
+              </h3>
             </Jumbotron>
           </Col>
         </Row>

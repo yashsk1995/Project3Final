@@ -1,6 +1,8 @@
 /* common style for all pages #####################  */
 .btn-primary {
-  background-color: #77aaff;
+  background-color: #6682eb;
+  padding: 10px;
+  font-size: 15px;
 }
 
 .landing-inner {
@@ -34,7 +36,7 @@ img {
 /* NavBar items  ###############################################*/
 
 .nav {
-  background-color: #6682EB;
+  background-color: #6682eb;
   box-shadow: 0 8px 6px -6px gray;
 
   /* padding: 10px; */
@@ -55,13 +57,13 @@ img {
 /* Navbar buttons ############################################### */
 .navButtons {
   margin-right: 10px;
-  background-color: #77aaff;
+  background-color: #6682eb;
   color: white;
   /* height: 20px; */
   text-align: right !important;
-  font-size: 12px;
+  font-size: 15px;
   /* font-weight: bold; */
-  padding: 8px;
+  padding: 10px;
 }
 
 .logout {
@@ -92,7 +94,7 @@ img {
 
 /* Registration page ##################################################### */
 .register {
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 /* Registration page ##################################################### */
@@ -122,7 +124,7 @@ img {
 }
 
 .choose-btn {
-  background-color: dodgerblue;
+  background-color: #77aaff;
   height: 330px;
 }
 
@@ -136,8 +138,18 @@ img {
   width: 340px;
   border: 2px dotted black;
   border-radius: 50%;
-  background-image: url("https://image.ibb.co/iV9AyA/user-Place-Holder-Image.png");
+  background-image: url("https://preview.ibb.co/j0uMyL/10210618-1.jpg");
   background-size: 340px 340px;
+}
+
+.dropZoneTitle {
+  /* font-family: "Cedarville Cursive", cursive; */
+  font-size: 25px;
+  /* font-weight: bold; */
+  color: blue;
+}
+.dropZoneTitle2 {
+  font-size: 18px;
 }
 
 .dropZoneImage {
@@ -154,4 +166,10 @@ img {
 
 .hide {
   display: none;
+}
+
+/* ######################## reg basic info ############################# */
+.regInfo {
+  padding-top: 90px;
+  text-align: center;
 }
