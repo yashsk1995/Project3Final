@@ -6,7 +6,7 @@ import API from "../../utils/API";
 import Button from "../../components/Button";
 import Name from "../../components/cards/profile";
 import Modal from "../../components/modal/modal";
-import Cm from "../../components/common modal/cm";
+// import Cm from "../../components/common modal/cm";
 
 // import Checkbox from "../../components/Checkbox";
 import propTypes from "prop-types";
@@ -14,6 +14,7 @@ import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
 
 class Matches extends Component {
+  
   state = {
     user: [],
     results: [],
@@ -255,7 +256,7 @@ sortMyData = () => {
 //   }
 // }
 render(){
-  const { isAuthenticated, user } = this.props.auth;
+  const { user } = this.props.auth;
 
 return (
     
@@ -295,10 +296,10 @@ return (
                       />
                       : null
                   }
-                         <Cm show={this.state.show2} handleClose={this.hideModal2}
+                         {/* <Cm show={this.state.show2} handleClose={this.hideModal2}
                   msgs="saved successfully"
                 // interestIn={this.state.Info.interestIn}
-                />
+                /> */}
                   <Modal show={this.state.show} handleClose={this.hideModal}
                     avatarUrl={this.state.Info.avatar}
                     name={this.state.Info.name}

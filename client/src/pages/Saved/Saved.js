@@ -4,7 +4,7 @@ import Jumbotron from "../../components/Jumbotron";
 import API from "../../utils/API";
 // import "./matches.css";
 import Button from "../../components/Button";
-import Name from "../../components/cards/profile";
+import Name from "../../components/card2/profile2";
 import Modal from "../../components/modal/modal"
 
 // import Checkbox from "../../components/Checkbox";
@@ -32,9 +32,9 @@ class Saved extends Component {
   {
     const { isAuthenticated, user } = this.props.auth;
     this.getAlluser();
-    console.log(user.id);
+    // console.log(user.id);
     // this.getCurrentUser(user.id);
-    // this.find(user.id,user.interestedIn[0],user.interestedIn[1],user.interestedIn[2],user.interestedIn[3]);
+    this.find(user.id,user.interestedIn[0],user.interestedIn[1],user.interestedIn[2],user.interestedIn[3]);
 
   }
   find = (id,startAge, EndAge, Gender, Area) => {
@@ -43,20 +43,25 @@ class Saved extends Component {
       .then(res => {
         
         this.setState({ results: res.data })
+            console.log(this.state.results);
         this.sortByMatches();
         this.sortMyData();
         this.setState({finalResults:this.state.results})
         // console.log(parseInt(this.state.results[3].percentage));
+          console.log(this.state.results);
+        console.log(this.state.newResults);
           // console.log({user.name})
       });
   }
   sortByMatches = () =>{
-    let matchedUsers = this.state.results1;
+    console.log(this.state.results);
+    let matchedUsers = this.state.results1 ;
     const { isAuthenticated, user } = this.props.auth;
 
 //initialize 
 // let myLikes = currentUser.interestIn;
 let interestIn = user.interestedIn.slice(4);
+console.log(interestIn);
 let myLikes = interestIn;
 let theirLikes = [];
 
@@ -89,6 +94,7 @@ sortMyData = () => {
 showModal = id => {
   API.getInfoById(id)
     .then(res => { console.log(res); this.setState({ Info: res.data }) });
+  console.log("INFO" + this.state.Info);
   this.setState({ show: true });
   this.setState({ currentUserId: id });
   // console.log("hi");
@@ -130,7 +136,9 @@ getAlluser = () => {
   API.getUsers()
     .then(res => {
       this.setState({ results1: res.data })
-      this.getCurrentUser(user.id);
+      console.log(this.state.results1);
+          this.getCurrentUser(user.id);
+
     })
 
 
@@ -141,21 +149,7 @@ getCurrentUser = id => {
   API.getInfoById(id)
     .then(res => {
       this.setState({ userMain: res.data })
-      let useridList= this.state.userMain.saved;
-  let final = [];
-  this.state.results1.forEach(results1 =>useridList.forEach(useridList => {
-    // console.log(useridList);
-    if (results1._id == useridList) {
-      final.push(results1);
-        // console.log(results);
-    }
-    else {
-
-    }
-  this.setState({finalResults1:final});
-  }
-  ))
-  
+      console.log(this.state.userMain.saved);
       this.finalResultsDone();
     });
 
@@ -164,37 +158,46 @@ getCurrentUser = id => {
 
 };
 finalResultsDone = () => {
-  console.log(this.state.finalResults1)
+  let useridList= this.state.userMain.saved;
+  console.log(this.state.results1);
+  let final = [];
+  this.state.results1.forEach(results1 =>useridList.forEach(useridList => {
+    // console.log(useridList);
+    if (results1._id == useridList) {
+      console.log("hi");
+      final.push(results1);
+      console.log(final);
+        // console.log(results);
+    }
+    else {
+
+    }
+  this.setState({finalResults1:final});
+  }
+  ))
 };
 
 render() {
   const { isAuthenticated, user } = this.props.auth;
 
   return (
-    <Container fluid>
-      <Jumbotron>
-        <Row>
-          <Col size="md-11">
-
-            <h3>save</h3>
-
-          </Col>
-          <Col size="md-1">
-            <Button link="/dashboard" text="Back To Dashboard" />
-
-          </Col>
-        </Row>
-      </Jumbotron>
+  <div>
+    <br />
+    <br />
 
       {this.state.finalResults1.length ? (
-        <div>
+          <Container fluid>
+            
+          <Row>
+<Col size="md-0">
+</Col>
           {this.state.finalResults1.map(user => (
             //   <div>
             //   <h3>{user.username}</h3>
 
             // </div>
-            <div>
-
+            <Col size="md-4">
+            <br></br>
               {
 
                 this.state.showMe ?
@@ -225,7 +228,7 @@ render() {
                 name={this.state.Info.name}
                 Gender={this.state.Info.myGender}
                 Age={this.state.Info.myAge}
-                About_me={this.state.Info.aboutMe}
+                About_me={this.state.Info.aboutMe == undefined ? [] : this.state.Info.aboutMe}
                 interestIn={this.state.Info.interestedIn == undefined ? [] : this.state.Info.interestedIn}
                 location={this.state.Info.myLocation}
                 contact_number={this.state.Info._id}
@@ -234,9 +237,13 @@ render() {
               // interestIn={this.state.Info.interestIn}
               />
 
-            </div>
+                </Col>
           ))}
-        </div>
+        <Col size="md-8">
+                </Col>
+                            </Row>
+
+            </Container>
       ) : (
           <h3>No Results to Display</h3>
         )}
@@ -246,7 +253,8 @@ render() {
 
         {/* ))} */}
       </div>
-    </Container>
+
+    </div>
   );
 }
 }

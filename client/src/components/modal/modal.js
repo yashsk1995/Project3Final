@@ -5,7 +5,7 @@ import { Col, Row, Container } from "../../components/Grid";
 //({ handleClose, show, children ,userid, username })
 const Modal = props => {
   let age = [];
-   let text1 = [];
+  let text1 = [];
   const showHideClassName = props.show ? 'modal display-block' : 'modal display-none';
   return (
 
@@ -50,6 +50,7 @@ const Modal = props => {
                 <Row>
                   <Col size="md-0">
                   </Col>
+
                   {props.About_me.map((interest) => {
                     return (
 
@@ -62,7 +63,9 @@ const Modal = props => {
 
 
                     )
-                  })}
+                  })
+                  }
+
                   <Col size="md-5">
                   </Col>
                 </Row>
@@ -94,10 +97,8 @@ const Modal = props => {
             <Col size="md-5">
               <Container fluid>
                 <Row>
-                  <Col size="md-0">
-                  </Col>
                   {props.interestIn.map((interest) => {
-                    
+
                     if (isNaN(interest)) {
                       text1.push(interest);
 
@@ -109,21 +110,32 @@ const Modal = props => {
                     }
                     console.log("text1", text1);
                     console.log("age", age);
-                    return (
-                      <Col size="md-8">
 
-                        <div className="intrested">
-                          <h7><img className="eimg434" src="https://png.icons8.com/material/80/000000/checkmark.png" />&nbsp;&nbsp;{text1[0]}</h7>
-                        </div>
-                      </Col>
 
-                    )
                   })}
+                  <Col size="md-12">
 
-                  <Col size="md-5">
+                    <h3 className="dadsqrtf">I am looking forward to find someone who is between {age[0]} to {age[1]} years old and {text1.shift()}, who resides in {text1.shift()} and who </h3>
+
+                    <br />
+                    <br />
+                  </Col>
+
+
+                </Row>
+                <Row>
+                  <Col size="md-12">
+                  {text1.map((interest) => {
+                    return (
+                      <Col size="md-3">
+                      <br />
+                        <h7><img className="eimg434" src="" />&nbsp;&nbsp;{interest}</h7>
+                      </Col>
+                    )
+                  })
+                  }
                   </Col>
                 </Row>
-
               </Container>
 
             </Col>
@@ -139,8 +151,8 @@ const Modal = props => {
           <Row>
             <Col size="md-5"></Col>
             <Col size="md-3">
-            <br />
-            <br />
+              <br />
+              <br />
               <h4><img className="eimg1" src="https://png.icons8.com/color/40/000000/marker.png" alt="location" />            {props.location}</h4>
             </Col>
             <Col size="md-4">
@@ -148,19 +160,19 @@ const Modal = props => {
           </Row>
 
 
-         
+
 
 
 
           <Row>
             <Col size="md-5"></Col>
             <Col size="md-3">
-             <h4> <img className="eimg2" src="https://png.icons8.com/dusk/80/000000/gmail.png" alt="gmail" />{props.email}</h4>
+              <h4> <img className="eimg2" src="https://png.icons8.com/dusk/80/000000/gmail.png" alt="gmail" />{props.email}</h4>
             </Col>
             <Col size="md-4">
             </Col>
           </Row>
-         
+
           <br></br>
           <Row>
             <Col size="md-5"></Col>

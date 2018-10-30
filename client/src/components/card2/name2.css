@@ -1,0 +1,121 @@
+.containername {
+  padding: 30px;
+  height:90%;
+  /* width: 88%; */
+  background-color: #B6B3DE;
+  color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  border: 1px solid lightgray;
+  /* box-shadow: gray 2px 5px 20px 5px; */
+  box-shadow: 0 8px 6px -6px gray;
+
+  border-radius: 8px;
+  top:10px;
+
+}
+.hiddenname{
+display: none;
+}
+
+.image1name {
+  display: block;
+  height: 140px;
+  border-radius: 100%;
+
+}
+
+.overlay1name {
+  position: absolute;
+  border-radius: 10px;
+  bottom: 0;
+  left: 19px;
+  right: 0;
+  top:27px;
+  background-color: rgba(77, 77, 97, 0.678);
+  opacity: 0.85;
+  filter: alpha(opacity=50);
+  overflow: hidden;
+  width: 90%;
+  height: 90%;
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+  -webkit-transition: .3s ease;
+  transition: .3s ease;
+}
+
+.containername:hover .overlay1name {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.text1name {
+  color: white;
+  font-size: 20px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+.btn1name {
+   background-color: #6682EB;
+  border: 2px solid white;
+  color:white;
+  font-size: 15px;
+  cursor: pointer;
+  width: 70%;
+  height: 50px;
+  /* position: fixed;
+  top:10px;
+  bottom: 0px;
+  right: 0px;
+  left: 27px; */
+}
+.btn11name {
+  background-color: #6682EB;
+  border: 2px solid white;
+  color:white;
+  font-size: 15px;
+  cursor: pointer;
+  width: 70%;
+  height: 50px;
+  /* position: fixed;
+  top:90px;
+  bottom: 0px;
+  right: 0px;
+  left: 27px; */
+}
+.btn21name {
+  background-color: #6682EB;
+  border: 2px solid white;
+  color:white;
+  font-size: 15px;
+  font-weight: bold;
+  font-weight: 500;
+  cursor: pointer;
+  width: 70%;
+  height: 50px;
+  /* position: fixed;
+  top:170px;
+  bottom: 0px;
+  right: 0px;
+  left: 27px; */
+}
+.btn1name :hover{
+color:black;
+}
+.btn11name :hover{
+color:black;
+}
+.btn21name :hover{
+color:black;
+}
+.charting{
+height:50px;
+}
+.font{
+   text-align: center;
+}

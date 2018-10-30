@@ -314,7 +314,7 @@ class Profile extends Component {
                     />
                     &nbsp; years old &nbsp;
                     <select
-                      className="form-control form-control-sm col-sm-1"
+                      className="form-control form-control-lg col-md-1"
                       name="mygender"
                       onChange={this.onChange}
                       // value={this.state.user.myGender}
@@ -439,7 +439,7 @@ class Profile extends Component {
                   <p className="form-inline justify-content-center">
                     I am a looking for &nbsp;
                     <select
-                      className="form-control form-control-sm col-sm-1"
+                      className="form-control form-control-lg col-md-1"
                       name="lookingForgender"
                       onChange={this.onChange}
                       defaultValue={user.interestedIn[0]}
