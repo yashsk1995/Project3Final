@@ -72,12 +72,12 @@
   height: 250px;
 }
 .eimg1{
-  height: 50%;
-  width: 25%;
+  height: 10%;
+  width: 10%;
 }
 .eimg2{
-  height: 50%;
-  width: 5%;
+  height: 10%;
+  width: 10%;
 }
 .texxtte{
   margin-top:-80px;
@@ -88,4 +88,7 @@
 }
 .btnnnnnn{
   text-align: center;
+  width: 100%;
+  background: #6682EB;
+  font-size: 25px;
 }

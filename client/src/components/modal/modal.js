@@ -137,50 +137,36 @@ const Modal = props => {
 
 
           <Row>
-            <Col size="md-4"></Col>
+            <Col size="md-5"></Col>
             <Col size="md-3">
-              <h4 className="h555555"><img className="eimg1" src="https://png.icons8.com/color/40/000000/marker.png" alt="location" /></h4>
+            <br />
+            <br />
+              <h4><img className="eimg1" src="https://png.icons8.com/color/40/000000/marker.png" alt="location" />            {props.location}</h4>
             </Col>
-            <Col size="md-5">
+            <Col size="md-4">
             </Col>
           </Row>
 
 
-          <Row>
-            <Col size="md-4"></Col>
-            <Col size="md-3">
-              <h4 className="h555555">{props.location}</h4>
-            </Col>
-            <Col size="md-5">
-            </Col>
-          </Row>
+         
 
 
 
           <Row>
             <Col size="md-5"></Col>
             <Col size="md-3">
-              <img className="eimg2" src="https://png.icons8.com/dusk/80/000000/gmail.png" alt="gmail" />
+             <h4> <img className="eimg2" src="https://png.icons8.com/dusk/80/000000/gmail.png" alt="gmail" />{props.email}</h4>
             </Col>
             <Col size="md-4">
             </Col>
           </Row>
-          <Row>
-            <Col size="md-3"></Col>
-
-            <Col size="md-5">
-
-              <h4 className="h555555">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{props.email}</h4>
-
-
-            </Col>
-            <Col size="md-4"></Col>
-          </Row>
+         
           <br></br>
           <Row>
             <Col size="md-5"></Col>
             <Col size="md-2">
               <button className="btn btn-primary btnnnnnn" onClick={props.handleClose}  >Close</button>
+              <br /><br />
             </Col>
             <Col size="md-5"></Col>
           </Row>
