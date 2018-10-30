@@ -51,9 +51,9 @@ class Navbar extends Component {
     );
     return (
       <div className="nav">
-        <a className="navbar-brand" href="/">
-          ROOMMATES
-        </a>
+        <font className="fyudjfbc"><a className="navbar-brand" href="/">
+          Rommies
+        </a></font>
         <nav className="navbar ml-auto">
           <div className="navBtns">
             {/* Conditional statements to display nav items */}
