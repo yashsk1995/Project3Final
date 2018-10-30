@@ -67,7 +67,8 @@ class Admin extends Component {
                         { title: 'Female', value: this.state.genders.length / this.state.femaleCount, color: "#698D10" },
                     ]}
                     >
-                        <h1 style={{ textAlign: 'center', padding: '20px' }}><img className="imgggggggg" src="https://png.icons8.com/office/40/000000/person-male.png"/> {this.state.maleCount}, <img className="imgggggggg" src="https://png.icons8.com/office/40/000000/guest-female.png"/> {this.state.femaleCount}, <br></br><p className="ppppppppp">Total:</p> {this.state.users.length}</h1>
+                        <h1><img className="imgggggggg" src="https://png.icons8.com/office/40/000000/person-male.png"/> {this.state.maleCount}, 
+                        <img className="imgggggggg" src="https://png.icons8.com/office/40/000000/guest-female.png"/> {this.state.femaleCount}, <br></br><p className="ppppppppp">Total:</p> {this.state.users.length}</h1>
                         <button style={{ marginRight: "40%",marginLeft: "30%", width: "30%", }} className="btn btn-primary btn-block mt-2" onClick={() => this.handleTransition()}>Proceed</button>
                     </PieChart> : null}
                 {this.state.showResults ?
