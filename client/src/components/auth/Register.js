@@ -262,7 +262,14 @@ class Register extends Component {
                             this.state.avatar.length > 0 ? "hide" : "show"
                           }
                         >
-                          <h4> Drag and drop your image </h4>
+                          <h4 className="dropZoneTitle">
+                            {" "}
+                            <p>Let's start by uploading an image </p>
+                            <p className="dropZoneTitle2">
+                              {" "}
+                              Drag and drop or click on image to upload
+                            </p>
+                          </h4>
                         </div>
                       </div>
                     </div>
@@ -640,72 +647,79 @@ class Register extends Component {
                 </div>
 
                 {/* <!singn up from --####################################################################################--> */}
-                <div className={this.state.step3 === 0 ? "hide" : "show"}>
-                  <div className="form-group col-md-7">
-                    <input
-                      type="text"
-                      // className="is-invalid form-control form-control-md"
-                      className={classnames("form-control form-control-md", {
-                        "is-invalid": errors.name
-                      })}
-                      placeholder="Name"
-                      name="name"
-                      value={this.state.name}
-                      onChange={this.onChange}
-                    />
-                    {errors.name && (
-                      <div className="invalid-feedback">{errors.name}</div>
-                    )}
+                <div className="regInfo">
+                  <div className={this.state.step3 === 0 ? "hide" : "show"}>
+                    <div className="form-group col-md-6 col-md-offset-3">
+                      <input
+                        type="text"
+                        className={classnames("form-control form-control-md", {
+                          "is-invalid": errors.name
+                        })}
+                        placeholder="Name"
+                        name="name"
+                        value={this.state.name}
+                        onChange={this.onChange}
+                      />
+                      {errors.name && (
+                        <div className="invalid-feedback">{errors.name}</div>
+                      )}
+                    </div>
+                    <div className="form-group col-md-6 col-md-offset-3">
+                      <input
+                        type="text"
+                        className={classnames("form-control form-control-md", {
+                          "is-invalid": errors.name
+                        })}
+                        placeholder="Email Address"
+                        name="email"
+                        value={this.state.email}
+                        onChange={this.onChange}
+                      />
+                      {errors.email && (
+                        <div className="invalid-feedback">{errors.email}</div>
+                      )}
+                    </div>
+                    <div className="form-group col-md-6 col-md-offset-3">
+                      <input
+                        type="password"
+                        className={classnames("form-control form-control-md", {
+                          "is-invalid": errors.name
+                        })}
+                        placeholder="Password"
+                        name="password"
+                        value={this.state.password}
+                        onChange={this.onChange}
+                      />
+                      {errors.password && (
+                        <div className="invalid-feedback">
+                          {errors.password}
+                        </div>
+                      )}
+                    </div>
+                    <div className="form-group col-md-6 col-md-offset-3">
+                      <input
+                        type="password"
+                        className={classnames("form-control form-control-md", {
+                          "is-invalid": errors.name
+                        })}
+                        placeholder="Confirm Password"
+                        name="password2"
+                        value={this.state.password2}
+                        onChange={this.onChange}
+                      />
+                      {errors.password2 && (
+                        <div className="invalid-feedback">
+                          {errors.password2}
+                        </div>
+                      )}
+                    </div>
+                    <div className="col-md-6 col-md-offset-3">
+                      <input
+                        type="submit"
+                        className="btn btn-block btn-primary  "
+                      />
+                    </div>
                   </div>
-                  <div className="form-group col-md-7">
-                    <input
-                      type="text"
-                      className={classnames("form-control form-control-md", {
-                        "is-invalid": errors.name
-                      })}
-                      placeholder="Email Address"
-                      name="email"
-                      value={this.state.email}
-                      onChange={this.onChange}
-                    />
-                    {errors.email && (
-                      <div className="invalid-feedback">{errors.email}</div>
-                    )}
-                  </div>
-                  <div className="form-group col-md-7">
-                    <input
-                      type="password"
-                      className={classnames("form-control form-control-md", {
-                        "is-invalid": errors.name
-                      })}
-                      placeholder="Password"
-                      name="password"
-                      value={this.state.password}
-                      onChange={this.onChange}
-                    />
-                    {errors.password && (
-                      <div className="invalid-feedback">{errors.password}</div>
-                    )}
-                  </div>
-                  <div className="form-group col-md-7">
-                    <input
-                      type="password"
-                      className={classnames("form-control form-control-md", {
-                        "is-invalid": errors.name
-                      })}
-                      placeholder="Confirm Password"
-                      name="password2"
-                      value={this.state.password2}
-                      onChange={this.onChange}
-                    />
-                    {errors.password2 && (
-                      <div className="invalid-feedback">{errors.password2}</div>
-                    )}
-                  </div>
-                  <input
-                    type="submit"
-                    className="btn btn-primary btn-block mt-4 col-md-7"
-                  />
                 </div>
               </form>
             </div>
